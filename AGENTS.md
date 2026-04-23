@@ -8,7 +8,7 @@ Run `bd list --status open` to see what's already on the table.
 
 Data repo only. Owns the cluster proposal — the source of truth for
 every node, user, and trust relation in the LiGoldragon kriom.
-Consumed by `horizon-rs` (via `horizon-cli` over the proposal TOML)
+Consumed by `horizon-rs` (via `horizon-cli` over the proposal nota)
 and by CriomOS through the horizon projection.
 
 ## Schema
