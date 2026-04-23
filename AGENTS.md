@@ -13,9 +13,10 @@ and by CriomOS through the horizon projection.
 
 ## Schema
 
-The proposal schema lives in [horizon-rs/docs/DESIGN.md](../horizon-rs/docs/DESIGN.md).
-Field naming is camelCase (matches Nix idiom when consumed via
-`builtins.fromTOML`). Validated by `horizon-cli` on every use.
+The proposal schema is owned by `horizon-rs` (see that repo's
+`docs/DESIGN.md`). Field naming is camelCase (matches Nix idiom when
+consumed via `builtins.fromTOML`). Validated by `horizon-cli` on
+every use.
 
 ## Wire format
 
