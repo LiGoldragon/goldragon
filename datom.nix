@@ -1,15 +1,15 @@
 {
-  astriz = {
+  nodes = {
     balboa = {
-      spici = "sentyr";
-      mycin = {
-        spici = "metyl";
-        ark = "arm64";
-        modyl = "rock64";
-        korz = 4;
+      species = "center";
+      machine = {
+        species = "metal";
+        arch = "arm64";
+        model = "rock64";
+        cores = 4;
       };
-      priKriomz = {
-        eseseitc = "AAAAC3NzaC1lZDI1NTE5AAAAIPvxPTAPPKe6Ne9MW4C04Ihe0g4NS12xydci/JW59pIe";
+      preCriomes = {
+        ssh = "AAAAC3NzaC1lZDI1NTE5AAAAIPvxPTAPPKe6Ne9MW4C04Ihe0g4NS12xydci/JW59pIe";
       };
       io = {
         disks = {
@@ -22,20 +22,20 @@
     };
 
     tiger = {
-      spici = "edj";
-      saiz = 3;
-      trost = 3;
-      mycin = {
-        spici = "metyl";
-        ark = "x86-64";
-        modyl = "ThinkPadE15Gen2Intel";
-        korz = 4;
+      species = "edgeTesting";
+      size = 3;
+      trust = 3;
+      machine = {
+        species = "metal";
+        arch = "x86-64";
+        model = "ThinkPadE15Gen2Intel";
+        cores = 4;
       };
-      neksysIp = "5::4/128";
-      linkLocalIPs = [ ];
+      nodeIp = "5::4/128";
+      linkLocalIps = [ ];
       io = {
-        kibord = "colemak";
-        butlodyr = "uefi";
+        keyboard = "colemak";
+        bootloader = "uefi";
         disks = {
           "/" = {
             device = "/dev/disk/by-uuid/158a5a78-3dbc-4c80-99b6-96e433bd836a";
@@ -46,13 +46,14 @@
             fsType = "vfat";
           };
         };
-        swapDevices = [{ device = "/dev/disk/by-uuid/4dcf2ad2-4677-483f-9900-046f0f53053a"; }];
+        swapDevices = [ { device = "/dev/disk/by-uuid/4dcf2ad2-4677-483f-9900-046f0f53053a"; } ];
       };
-      priKriomz = {
-        niksPriKriom = "P2pDdZrmbLO8EBUuwLvt+FJlqh4ZRVczgGV/Tmr1Bis=";
-        eseseitc = "AAAAC3NzaC1lZDI1NTE5AAAAIKeoCIfvbUDue17FBglmKF1N2cKH9CWsS5EcXOyBxq5T";
+      preCriomes = {
+        nixPreCriome = "/1SYuET5/IIscPvZcgZyrfsMcRiCFcmV051+0U5YXVM=";
+        nixSigningPublicKey = "/1SYuET5/IIscPvZcgZyrfsMcRiCFcmV051+0U5YXVM=";
+        ssh = "AAAAC3NzaC1lZDI1NTE5AAAAIKeoCIfvbUDue17FBglmKF1N2cKH9CWsS5EcXOyBxq5T";
         yggdrasil = {
-          priKriom = "38ed4c7c9ffd2e79361af3202f406810069fa37ff991e6d1d434a529ba75dfb3";
+          preCriome = "38ed4c7c9ffd2e79361af3202f406810069fa37ff991e6d1d434a529ba75dfb3";
           address = "202:3895:9c1b:16:8c36:4f28:66fe:85fc";
           subnet = "302:3895:9c1b:16";
         };
@@ -60,23 +61,26 @@
     };
 
     xerxes = {
-      spici = "haibrid";
-      saiz = 3;
-      trost = 3;
-      mycin = {
-        spici = "metyl";
-        ark = "x86-64";
-        modyl = "ThinkPadX240";
-        korz = 2;
+      species = "hybrid";
+      size = 3;
+      trust = 3;
+      machine = {
+        species = "metal";
+        arch = "x86-64";
+        model = "ThinkPadX240";
+        cores = 2;
       };
-
-      neksysIp = "5::1/128";
-      linkLocalIPs = [{ spici = "ethernet"; suffix = "aec6:ecad:34e0:b41f"; }];
-      wireguardPriKriom = "oOeqiGZC+oaIL0rKirFyiJ4N6qDQWICZ2wRelLMOR0o=";
-
+      nodeIp = "5::1/128";
+      linkLocalIps = [
+        {
+          species = "ethernet";
+          suffix = "aec6:ecad:34e0:b41f";
+        }
+      ];
+      wireguardPreCriome = "oOeqiGZC+oaIL0rKirFyiJ4N6qDQWICZ2wRelLMOR0o=";
       io = {
-        kibord = "colemak";
-        butlodyr = "uefi";
+        keyboard = "colemak";
+        bootloader = "uefi";
         disks = {
           "/" = {
             device = "/dev/disk/by-uuid/c5788e39-39da-41f1-9f6c-4137abb0c406";
@@ -107,150 +111,271 @@
           { device = "/dev/disk/by-uuid/03a014a2-9d6c-4c8e-b4be-b01415ad1beb"; }
         ];
       };
-      priKriomz = {
-        eseseitc = "AAAAC3NzaC1lZDI1NTE5AAAAIA0GR4qcTTTgkdes3aYFz998tWC6w0wss4nRDfvAFBda";
-        niksPriKriom = "AAqjPi1kOaOWyZrwupTpHNL/7SYjYmaeDu1J+hNtVFA=";
+      preCriomes = {
+        ssh = "AAAAC3NzaC1lZDI1NTE5AAAAIE172GOItdwxQwJhnVeaSuHIwYrcj5bENafKL9y/mKZX";
+        nixPreCriome = "AAqjPi1kOaOWyZrwupTpHNL/7SYjYmaeDu1J+hNtVFA=";
+        nixSigningPublicKey = "AAqjPi1kOaOWyZrwupTpHNL/7SYjYmaeDu1J+hNtVFA=";
         yggdrasil = {
-          priKriom = "2748bfce76cf7c2a8d6d73241fadd4cad2a32f631df6a4be4bfb33969b0490e0";
+          preCriome = "2748bfce76cf7c2a8d6d73241fadd4cad2a32f631df6a4be4bfb33969b0490e0";
           address = "202:c5ba:18c:4984:1eab:9494:66df:291";
           subnet = "302:c5ba:18c:4984";
         };
       };
     };
 
-    dante = {
-      spici = "sentyr";
-      saiz = 2;
-      trost = 3;
-      mycin = {
-        spici = "metyl";
-        ark = "x86-64";
-        modyl = "ThinkPadX230";
-        korz = 2;
+    zeus = {
+      species = "edge";
+      size = 3;
+      trust = 3;
+      machine = {
+        species = "metal";
+        arch = "x86-64";
+        model = "ThinkPadT14Gen2Intel";
+        cores = 4;
       };
-      neksysIp = "5::2/128";
-      linkLocalIPs = [{ spici = "ethernet"; suffix = "3e97:eff:fea3:30d2"; }];
-      wireguardPriKriom = "3HeLSQr+lbJp4w9oUILEVWrBpYYCoQzxkARWDCBf5j8=";
+      linkLocalIps = [ ];
       io = {
-        kibord = "colemak";
-        butlodyr = "uefi";
+        keyboard = "colemak";
+        bootloader = "uefi";
         disks = {
           "/" = {
-            device = "/dev/disk/by-uuid/6d6f8638-a0a7-49f9-81c2-2143b42ef3d5";
-            fsType = "xfs";
+            device = "/dev/disk/by-uuid/4bd0cbe7-082d-4f06-9283-978b834a85db";
+            fsType = "ext4";
           };
           "/boot" = {
-            device = "/dev/disk/by-uuid/DE95-8F37";
+            device = "/dev/disk/by-uuid/1491-B84C";
             fsType = "vfat";
+            options = [
+              "fmask=0022"
+              "dmask=0022"
+            ];
           };
         };
         swapDevices = [ ];
       };
-      priKriomz = {
-        eseseitc = "AAAAC3NzaC1lZDI1NTE5AAAAIDjXtLUY5gSvogSTzU54x/EryOgNVZ2HkCYQL1d9lKEB";
+      preCriomes = {
+        ssh = "AAAAC3NzaC1lZDI1NTE5AAAAIMAZxp1YpShbxSy1/Khu4wc57o+yWyuMh/80+dKHg6TW";
         yggdrasil = {
-          priKriom = "c9eca45c87e2f4478eec5488e2183fcf5536a34352201dec785c74dd1946268c";
-          address = "200:6c26:b746:f03a:1770:e227:56ee:3bcf";
-          subnet = "300:6c26:b746:f03a";
+          preCriome = "f40458290d7a2d79efdbef4b5f046fb7f825626eda9d118e4f2b869c105f6ec4";
+          address = "200:17f7:4fad:e50b:a50c:2048:2169:41f7";
+          subnet = "300:17f7:4fad:e50b";
         };
-        niksPriKriom = "cV4q5ycwjEd/VhSKhZolX8VVhv47MHSfatOBNq7bjuE=";
       };
     };
 
-    juno = {
-      spici = "haibrid";
-      saiz = 3;
-      trost = 3;
-      mycin = {
-        spici = "metyl";
-        ark = "x86-64";
-        modyl = "ThinkPadX230";
-        korz = 2;
+    ouranos = {
+      species = "edgeTesting";
+      size = 3;
+      trust = 3;
+      nordvpn = true;
+      machine = {
+        species = "metal";
+        arch = "x86-64";
+        model = "ThinkPadT14Gen5Intel";
+        cores = 12;
       };
+      nodeIp = "5::3/128";
+      linkLocalIps = [ ];
       io = {
-        kibord = "colemak";
-        butlodyr = "uefi";
+        keyboard = "colemak";
+        bootloader = "uefi";
         disks = {
           "/" = {
-            device = "/dev/disk/by-uuid/63ff7f56-4f1f-4676-9b69-1b729bfcb555";
-            fsType = "xfs";
-          };
-          "/home" = {
-            device = "/dev/disk/by-uuid/fdfc8c28-7ea3-4cbc-962b-e156114e765d";
-            fsType = "xfs";
+            device = "/dev/disk/by-uuid/38a88e99-3b6e-4de6-9772-05adddc3a1ca";
+            fsType = "ext4";
           };
           "/boot" = {
-            device = "/dev/disk/by-uuid/293E-399F";
+            device = "/dev/disk/by-uuid/725A-E86A";
+            fsType = "vfat";
+            options = [
+              "fmask=0022"
+              "dmask=0022"
+            ];
+          };
+        };
+        swapDevices = [ ];
+      };
+      preCriomes = {
+        ssh = "AAAAC3NzaC1lZDI1NTE5AAAAIP/v8LZFBXHMzflegvnHEgi6EyDn8P5i//iGjboVjtRr";
+        nixPreCriome = "AAqjPi1kOaOWyZrwupTpHNL/7SYjYmaeDu1J+hNtVFA=";
+        nixSigningPublicKey = "AAqjPi1kOaOWyZrwupTpHNL/7SYjYmaeDu1J+hNtVFA=";
+        yggdrasil = {
+          preCriome = "6487aabfe0d4f491a2986f4b41388ebcbd3c69a654f32feb9b1fba351bbd590a";
+          address = "201:6de1:5500:7cac:2db9:759e:42d2:fb1d";
+          subnet = "301:6de1:5500:7cac";
+        };
+      };
+    };
+
+    prometheus = {
+      species = "largeAI-router";
+      size = 3;
+      trust = 3;
+      machine = {
+        species = "metal";
+        arch = "x86-64";
+        model = "GMKtec EVO-X2";
+        cores = 8;
+      };
+      nodeIp = "5::5/128";
+      preCriomes = {
+        yggdrasil = {
+          preCriome = "de749c6fe90c14d5d843e5cb0eec4674e96b66d0b8b68866887c27a85d58cb7c9adf4a76f8229421981cdaaaf4d0177a57119eee5848499eaa9e0fdf107363cf";
+          address = "200:ca41:6b12:fba:d7bc:cfc6:4aaa:165f";
+          subnet = "300:ca41:6b12:fba";
+        };
+      };
+      io = {
+        bootloader = "uefi";
+        disks = {
+          "/" = {
+            device = "/dev/disk/by-uuid/d3ad7f53-2470-4744-9ddf-b183c7c22f31";
+            fsType = "btrfs";
+            options = [ "subvol=root" ];
+          };
+          "/home" = {
+            device = "/dev/disk/by-uuid/d3ad7f53-2470-4744-9ddf-b183c7c22f31";
+            fsType = "btrfs";
+            options = [ "subvol=home" ];
+          };
+          "/nix" = {
+            device = "/dev/disk/by-uuid/d3ad7f53-2470-4744-9ddf-b183c7c22f31";
+            fsType = "btrfs";
+            options = [ "subvol=nix" ];
+          };
+          "/var" = {
+            device = "/dev/disk/by-uuid/d3ad7f53-2470-4744-9ddf-b183c7c22f31";
+            fsType = "btrfs";
+            options = [ "subvol=var" ];
+          };
+          "/boot" = {
+            device = "/dev/disk/by-uuid/A252-A02B";
             fsType = "vfat";
           };
         };
         swapDevices = [ ];
       };
-      priKriomz = {
-        eseseitc = "AAAAC3NzaC1lZDI1NTE5AAAAICWYATms2fd9JVJNrMetB8uNNP/ZKNG9/QhJBkyJ/6VX";
-        yggdrasil = {
-          priKriom = "d7cbcd3122a0ba4d0ca1f662ecbab4bc376343ece193749c3f94a6e1b24f42db";
-          address = "200:5068:659d:babe:8b65:e6bc:133a:268a";
-          subnet = "300:5068:659d:babe";
+    };
+
+    klio = {
+      species = "edge";
+      size = 3;
+      trust = 2;
+      machine = {
+        species = "metal";
+        arch = "x86-64";
+        model = "ThinkPadX250";
+        cores = 2;
+      };
+      nodeIp = "5::2/128";
+      io = {
+        keyboard = "colemak";
+        bootloader = "uefi";
+        disks = {
+          "/" = {
+            device = "/dev/disk/by-uuid/ac609ecf-be8e-49ee-a892-2552e74d97e3";
+            fsType = "ext4";
+          };
+          "/boot" = {
+            device = "/dev/disk/by-uuid/BBE9-75C7";
+            fsType = "vfat";
+          };
         };
-        niksPriKriom = "Mx+wLIfTWjYm2b+gI6X5vxY0eGtScNB1+51DxIZbeus=";
+        swapDevices = [ { device = "/dev/disk/by-uuid/f86fc799-cbc2-473b-94ce-abfc1aa040f2"; } ];
+      };
+      preCriomes = {
+        ssh = "AAAAC3NzaC1lZDI1NTE5AAAAID7E6ca/f2Bkz5Z9ZX4ASHXPLF7TYI/Z4C0/Is/Ljpyu";
+        nixPreCriome = "7N3PTqwWdA0p4XNjupKhLhVD5D0cEFcY/mUk3FRo5lI=";
+        nixSigningPublicKey = "7N3PTqwWdA0p4XNjupKhLhVD5D0cEFcY/mUk3FRo5lI=";
+        yggdrasil = {
+          preCriome = "cef05ea020845caf73f2b3b3c15d27e3d55dd35b5155692a5464b7920b6b03b9";
+          address = "200:621f:42bf:bef7:46a1:181a:9898:7d45";
+          subnet = "300:621f:42bf:bef7";
+        };
+      };
+    };
+
+    asklepios = {
+      species = "hybrid";
+      size = 1;
+      trust = 3;
+      machine = {
+        species = "metal";
+        arch = "x86-64";
+        model = "all-x86-64";
+        cores = 1;
+      };
+      preCriomes = {
+        ssh = "AAAAC3NzaC1lZDI1NTE5AAAAIHEtxRF2wjSD1DzlYCW9BivOsz9X0P95msrbXvGATy/p";
       };
     };
 
     eibetik = {
-      spici = "sentyr";
-      saiz = 1;
-      trost = 2;
-      mycin = {
-        spici = "pod";
-        ubyrAstri = "xerxes";
-        ubyrKrimyn = "li";
-        korz = 1;
+      species = "center";
+      size = 1;
+      trust = 2;
+      machine = {
+        species = "pod";
+        superNode = "xerxes";
+        superUser = "li";
+        cores = 1;
       };
     };
   };
 
-  krimynz = {
+  users = {
     li = {
-      spici = "Onlimityd";
-      saiz = 3;
-      kibord = "colemak";
+      species = "unlimited";
+      size = 3;
+      keyboard = "colemak";
       githubId = "LiGoldragon";
-      priKriomz = {
-        dante = {
-          eseseitc = "AAAAC3NzaC1lZDI1NTE5AAAAIK769R2iKyr5rgBvR9OFeSN2kdo8h+LtXVUjzdFLf4vl";
-          keygrip = "AD305831DD33E62F9AD587718D4E5E6999CD84EA";
+      preCriomes = {
+        zeus = {
+          ssh = "AAAAC3NzaC1lZDI1NTE5AAAAIII6G7yMqNXJSuHDlH8R2JRSLSM6sZZLULaK8yDzquwO";
+          keygrip = "CEEA0DD02CA901E5F71A8CB3EB5C5EB902AA210E";
         };
         tiger = {
-          eseseitc = "AAAAC3NzaC1lZDI1NTE5AAAAILTm644m4foET1j+DGHl0gfEyGD9A4YltsNOidDUn3BG";
+          ssh = "AAAAC3NzaC1lZDI1NTE5AAAAILTm644m4foET1j+DGHl0gfEyGD9A4YltsNOidDUn3BG";
           keygrip = "1785B4D2813D7ED1913A05FA74FF42B9153EEFF0";
         };
+        ouranos = {
+          ssh = "AAAAC3NzaC1lZDI1NTE5AAAAIHEtxRF2wjSD1DzlYCW9BivOsz9X0P95msrbXvGATy/p";
+          keygrip = "7FAFE190D2C749B222B249E54E5A7AD71C1BDDBD";
+        };
         xerxes = {
-          eseseitc = "AAAAC3NzaC1lZDI1NTE5AAAAIEygb1Ft1hIB+ExPGLq08im9rFYvOeYXX+NetgqjI3Db";
-          keygrip = "63A149ECC539BAF2B001C57E9A55A566BCD48446";
+          ssh = "AAAAC3NzaC1lZDI1NTE5AAAAICiHPTciuu3Yn8my604bWPo+T/9cIIMOqbrzPjqAt88/";
+          keygrip = "DE688BEA4BAC3595A263EC1B76373B7C275899D9";
         };
       };
     };
 
     bird = {
-      spici = "Sema";
-      saiz = 3;
-      kibord = "colemak";
-      priKriomz = {
-        juno = {
-          eseseitc = "AAAAC3NzaC1lZDI1NTE5AAAAIKTc1b3BgAHoY1R7gY8YsaPI7AeTZzDyWJPhlyEkjv/e";
-          keygrip = "2B02ECA0AE0D9A027C013234DEB7888B37E70DBF";
+      species = "multimedia";
+      size = 3;
+      keyboard = "colemak";
+      preCriomes = {
+        klio = {
+          ssh = "AAAAC3NzaC1lZDI1NTE5AAAAIK4NC1v3l3Q55Bue6aorvvAB/WoTEdeJXJfwZbxKAwbu";
+          keygrip = "45D28CE63EFE23CB5FB9C093786C73450ECD3384";
+        };
+        tiger = {
+          ssh = "AAAAC3NzaC1lZDI1NTE5AAAAIGhaPt/4ytqbJ9oPk5DE5WEK23N36pZRbvaEuqr/MtfF";
+          keygrip = "943502A0A9D25EF34C16E2ED2A120C26279C4248";
+        };
+        zeus = {
+          ssh = "AAAAC3NzaC1lZDI1NTE5AAAAIMioAruS5HbgT8hUOVAgKKUP0P6s4gXliVb+AcrtWr4V";
+          keygrip = "962157586FC998370969F675812FE1EBBD9CF8DA";
         };
       };
     };
 
     maikro = {
-      spici = "Niks";
-      saiz = 1;
-      kibord = "colemak";
-      priKriomz = {
+      species = "code";
+      size = 1;
+      keyboard = "colemak";
+      preCriomes = {
         xerxes = {
-          eseseitc = "AAAAC3NzaC1lZDI1NTE5AAAAIEygb1Ft1hIB+ExPGLq08im9rFYvOeYXX+NetgqjI3Db";
+          ssh = "AAAAC3NzaC1lZDI1NTE5AAAAIEygb1Ft1hIB+ExPGLq08im9rFYvOeYXX+NetgqjI3Db";
           keygrip = "63A149ECC539BAF2B001C57E9A55A566BCD48446";
         };
       };
@@ -258,20 +383,22 @@
     };
   };
 
-  domeinz = { };
+  domains = { };
 
-  trost = {
-    metastra = 3;
-    metastriz = { };
-    astriz = {
+  trust = {
+    cluster = 3;
+    clusters = { };
+    nodes = {
       balboa = 3;
       xerxes = 3;
-      dante = 3;
+      zeus = 3;
+      ouranos = 3;
+      prometheus = 3;
+      asklepios = 3;
       eibetik = 2;
-      juno = 2;
       tiger = 3;
     };
-    krimynz = {
+    users = {
       maikro = 3;
       li = 3;
       bird = 2;

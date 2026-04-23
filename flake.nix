@@ -1,6 +1,7 @@
 {
-  description = "Li Goldragon's Kriom";
+  description = "goldragon — cluster proposal (production data for the LiGoldragon kriom)";
 
-  outputs = { self }:
-    { NeksysProposal = import ./datom.nix; };
+  outputs = _: {
+    NodeProposal = import ./datom.nix;
+  };
 }
