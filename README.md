@@ -9,9 +9,10 @@ Replaces `maisiliym` as the source of truth. Seeded from the maisiliym
 ## Wire format
 
 Currently Nix (`datom.nix` exported via `flake.outputs.NodeProposal`).
-Both Nix and JSON are placeholders — neither is the long-term format.
-A new format will be chosen as horizon-rs and the surrounding tooling
-mature.
+Target is `datom.nota` — `horizon-cli` reads nota on stdin and emits
+the enriched horizon as nota by default, or as JSON via
+`--format json` for Nix consumers (since `builtins.fromNota` does not
+exist). Tracked in beads `gold-lu7` / `gold-21l`.
 
 ## Consumers
 
@@ -23,5 +24,8 @@ mature.
 
 ## Schema
 
-See [/home/li/git/CriomOS/docs/HORIZON.md](https://github.com/LiGoldragon/CriomOS/blob/main/docs/HORIZON.md)
-for the full method DAG and field meanings.
+See [/home/li/git/horizon-rs/docs/DESIGN.md](/home/li/git/horizon-rs/docs/DESIGN.md)
+for the typed schema and projection logic. The integration tests in
+[/home/li/git/horizon-rs/lib/tests/projection.rs](/home/li/git/horizon-rs/lib/tests/projection.rs)
+(against the nota fixture in `lib/tests/fixtures/maisiliym.nota`) are
+the executable spec.

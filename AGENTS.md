@@ -14,14 +14,15 @@ and by CriomOS through the horizon projection.
 ## Schema
 
 The proposal schema is owned by `horizon-rs` (see that repo's
-`docs/DESIGN.md`). Field naming is camelCase (matches Nix idiom when
-consumed via `builtins.fromTOML`). Validated by `horizon-cli` on
-every use.
+`docs/DESIGN.md`). Field naming is camelCase on the wire (matches Nix
+idiom). Validated by `horizon-cli` on every use; Nix consumers run
+`horizon-cli --format json` and read the result via `builtins.fromJSON`
+(no `builtins.fromNota` exists).
 
 ## Wire format
 
-Currently `datom.nix` during transition; target is `datom.toml`.
-See open beads issues for the conversion work.
+Currently `datom.nix` during transition; target is `datom.nota`.
+See open beads issues `gold-lu7` / `gold-21l` for the conversion work.
 
 ## Hard process rules
 
