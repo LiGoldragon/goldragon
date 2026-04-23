@@ -8,7 +8,7 @@
         model = "rock64";
         cores = 4;
       };
-      preCriomes = {
+      pubKeys = {
         ssh = "AAAAC3NzaC1lZDI1NTE5AAAAIPvxPTAPPKe6Ne9MW4C04Ihe0g4NS12xydci/JW59pIe";
       };
       io = {
@@ -48,12 +48,11 @@
         };
         swapDevices = [ { device = "/dev/disk/by-uuid/4dcf2ad2-4677-483f-9900-046f0f53053a"; } ];
       };
-      preCriomes = {
-        nixPreCriome = "/1SYuET5/IIscPvZcgZyrfsMcRiCFcmV051+0U5YXVM=";
-        nixSigningPublicKey = "/1SYuET5/IIscPvZcgZyrfsMcRiCFcmV051+0U5YXVM=";
+      pubKeys = {
+        nixPubKey = "/1SYuET5/IIscPvZcgZyrfsMcRiCFcmV051+0U5YXVM=";
         ssh = "AAAAC3NzaC1lZDI1NTE5AAAAIKeoCIfvbUDue17FBglmKF1N2cKH9CWsS5EcXOyBxq5T";
         yggdrasil = {
-          preCriome = "38ed4c7c9ffd2e79361af3202f406810069fa37ff991e6d1d434a529ba75dfb3";
+          pubKey = "38ed4c7c9ffd2e79361af3202f406810069fa37ff991e6d1d434a529ba75dfb3";
           address = "202:3895:9c1b:16:8c36:4f28:66fe:85fc";
           subnet = "302:3895:9c1b:16";
         };
@@ -77,7 +76,7 @@
           suffix = "aec6:ecad:34e0:b41f";
         }
       ];
-      wireguardPreCriome = "oOeqiGZC+oaIL0rKirFyiJ4N6qDQWICZ2wRelLMOR0o=";
+      wireguardPubKey = "oOeqiGZC+oaIL0rKirFyiJ4N6qDQWICZ2wRelLMOR0o=";
       io = {
         keyboard = "colemak";
         bootloader = "uefi";
@@ -111,12 +110,11 @@
           { device = "/dev/disk/by-uuid/03a014a2-9d6c-4c8e-b4be-b01415ad1beb"; }
         ];
       };
-      preCriomes = {
+      pubKeys = {
         ssh = "AAAAC3NzaC1lZDI1NTE5AAAAIE172GOItdwxQwJhnVeaSuHIwYrcj5bENafKL9y/mKZX";
-        nixPreCriome = "AAqjPi1kOaOWyZrwupTpHNL/7SYjYmaeDu1J+hNtVFA=";
-        nixSigningPublicKey = "AAqjPi1kOaOWyZrwupTpHNL/7SYjYmaeDu1J+hNtVFA=";
+        nixPubKey = "AAqjPi1kOaOWyZrwupTpHNL/7SYjYmaeDu1J+hNtVFA=";
         yggdrasil = {
-          preCriome = "2748bfce76cf7c2a8d6d73241fadd4cad2a32f631df6a4be4bfb33969b0490e0";
+          pubKey = "2748bfce76cf7c2a8d6d73241fadd4cad2a32f631df6a4be4bfb33969b0490e0";
           address = "202:c5ba:18c:4984:1eab:9494:66df:291";
           subnet = "302:c5ba:18c:4984";
         };
@@ -153,10 +151,10 @@
         };
         swapDevices = [ ];
       };
-      preCriomes = {
+      pubKeys = {
         ssh = "AAAAC3NzaC1lZDI1NTE5AAAAIMAZxp1YpShbxSy1/Khu4wc57o+yWyuMh/80+dKHg6TW";
         yggdrasil = {
-          preCriome = "f40458290d7a2d79efdbef4b5f046fb7f825626eda9d118e4f2b869c105f6ec4";
+          pubKey = "f40458290d7a2d79efdbef4b5f046fb7f825626eda9d118e4f2b869c105f6ec4";
           address = "200:17f7:4fad:e50b:a50c:2048:2169:41f7";
           subnet = "300:17f7:4fad:e50b";
         };
@@ -195,12 +193,11 @@
         };
         swapDevices = [ ];
       };
-      preCriomes = {
+      pubKeys = {
         ssh = "AAAAC3NzaC1lZDI1NTE5AAAAIP/v8LZFBXHMzflegvnHEgi6EyDn8P5i//iGjboVjtRr";
-        nixPreCriome = "AAqjPi1kOaOWyZrwupTpHNL/7SYjYmaeDu1J+hNtVFA=";
-        nixSigningPublicKey = "AAqjPi1kOaOWyZrwupTpHNL/7SYjYmaeDu1J+hNtVFA=";
+        nixPubKey = "AAqjPi1kOaOWyZrwupTpHNL/7SYjYmaeDu1J+hNtVFA=";
         yggdrasil = {
-          preCriome = "6487aabfe0d4f491a2986f4b41388ebcbd3c69a654f32feb9b1fba351bbd590a";
+          pubKey = "6487aabfe0d4f491a2986f4b41388ebcbd3c69a654f32feb9b1fba351bbd590a";
           address = "201:6de1:5500:7cac:2db9:759e:42d2:fb1d";
           subnet = "301:6de1:5500:7cac";
         };
@@ -218,9 +215,9 @@
         cores = 8;
       };
       nodeIp = "5::5/128";
-      preCriomes = {
+      pubKeys = {
         yggdrasil = {
-          preCriome = "de749c6fe90c14d5d843e5cb0eec4674e96b66d0b8b68866887c27a85d58cb7c9adf4a76f8229421981cdaaaf4d0177a57119eee5848499eaa9e0fdf107363cf";
+          pubKey = "de749c6fe90c14d5d843e5cb0eec4674e96b66d0b8b68866887c27a85d58cb7c9adf4a76f8229421981cdaaaf4d0177a57119eee5848499eaa9e0fdf107363cf";
           address = "200:ca41:6b12:fba:d7bc:cfc6:4aaa:165f";
           subnet = "300:ca41:6b12:fba";
         };
@@ -283,12 +280,11 @@
         };
         swapDevices = [ { device = "/dev/disk/by-uuid/f86fc799-cbc2-473b-94ce-abfc1aa040f2"; } ];
       };
-      preCriomes = {
+      pubKeys = {
         ssh = "AAAAC3NzaC1lZDI1NTE5AAAAID7E6ca/f2Bkz5Z9ZX4ASHXPLF7TYI/Z4C0/Is/Ljpyu";
-        nixPreCriome = "7N3PTqwWdA0p4XNjupKhLhVD5D0cEFcY/mUk3FRo5lI=";
-        nixSigningPublicKey = "7N3PTqwWdA0p4XNjupKhLhVD5D0cEFcY/mUk3FRo5lI=";
+        nixPubKey = "7N3PTqwWdA0p4XNjupKhLhVD5D0cEFcY/mUk3FRo5lI=";
         yggdrasil = {
-          preCriome = "cef05ea020845caf73f2b3b3c15d27e3d55dd35b5155692a5464b7920b6b03b9";
+          pubKey = "cef05ea020845caf73f2b3b3c15d27e3d55dd35b5155692a5464b7920b6b03b9";
           address = "200:621f:42bf:bef7:46a1:181a:9898:7d45";
           subnet = "300:621f:42bf:bef7";
         };
@@ -305,7 +301,7 @@
         model = "all-x86-64";
         cores = 1;
       };
-      preCriomes = {
+      pubKeys = {
         ssh = "AAAAC3NzaC1lZDI1NTE5AAAAIHEtxRF2wjSD1DzlYCW9BivOsz9X0P95msrbXvGATy/p";
       };
     };
@@ -329,7 +325,7 @@
       size = 3;
       keyboard = "colemak";
       githubId = "LiGoldragon";
-      preCriomes = {
+      pubKeys = {
         zeus = {
           ssh = "AAAAC3NzaC1lZDI1NTE5AAAAIII6G7yMqNXJSuHDlH8R2JRSLSM6sZZLULaK8yDzquwO";
           keygrip = "CEEA0DD02CA901E5F71A8CB3EB5C5EB902AA210E";
@@ -353,7 +349,7 @@
       species = "multimedia";
       size = 3;
       keyboard = "colemak";
-      preCriomes = {
+      pubKeys = {
         klio = {
           ssh = "AAAAC3NzaC1lZDI1NTE5AAAAIK4NC1v3l3Q55Bue6aorvvAB/WoTEdeJXJfwZbxKAwbu";
           keygrip = "45D28CE63EFE23CB5FB9C093786C73450ECD3384";
@@ -373,7 +369,7 @@
       species = "code";
       size = 1;
       keyboard = "colemak";
-      preCriomes = {
+      pubKeys = {
         xerxes = {
           ssh = "AAAAC3NzaC1lZDI1NTE5AAAAIEygb1Ft1hIB+ExPGLq08im9rFYvOeYXX+NetgqjI3Db";
           keygrip = "63A149ECC539BAF2B001C57E9A55A566BCD48446";
