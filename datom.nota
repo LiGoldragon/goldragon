@@ -6,7 +6,7 @@
 ;;  - 2026-04-24: initial datom.nix → datom.nota.
 ;;  - 2026-04-24: prometheus added (SSH host pubkey from ssh-keyscan;
 ;;    yggdrasil omitted — legacy 128-char value was a private key);
-;;    xerxes removed (decommissioned); maikro left with empty pubKeys.
+;;    xerxes removed (decommissioned); maikro removed (test user, never used).
 ;;  - balboa: keyboard/bootloader were absent; defaulted to Qwerty/Uboot.
 ;;  - prometheus: keyboard absent; defaulted to Qwerty (headless server).
 ;;  - All users: style absent; defaulted to Emacs (cluster-wide).
@@ -213,14 +213,6 @@
           [CEEA0DD02CA901E5F71A8CB3EB5C5EB902AA210E]))
       >))
 
-    ([maikro] (UserProposal
-      Code
-      Min
-      Colemak
-      Emacs
-      None
-      None
-      <>))
   >
 
   ;; ─── domains ────────────────────────────────────────────────────────
@@ -240,5 +232,4 @@
     <
       ([bird]   Med)
       ([li]     Max)
-      ([maikro] Max)
     >))
