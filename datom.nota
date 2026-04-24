@@ -2,13 +2,14 @@
 ;; Schema: horizon-rs ClusterProposal (positional records, source-decl order).
 ;; See https://github.com/LiGoldragon/horizon-rs docs/DESIGN.md.
 ;;
-;; Conversion notes (from datom.nix → datom.nota, 2026-04-24):
-;;  - Skipped nodes (incomplete data): asklepios (no io), eibetik (no io,
-;;    no pubKeys), prometheus (no ssh). Tracked in beads.
+;; Conversion notes:
+;;  - 2026-04-24: initial datom.nix → datom.nota.
+;;  - 2026-04-24: prometheus added (SSH host pubkey from ssh-keyscan;
+;;    yggdrasil omitted — legacy 128-char value was a private key);
+;;    xerxes removed (decommissioned); maikro left with empty pubKeys.
 ;;  - balboa: keyboard/bootloader were absent; defaulted to Qwerty/Uboot.
-;;  - All users: style was absent; defaulted to Emacs (cluster-wide).
-;;  - xerxes linkLocalIps[0].iface: defaulted to enp0s25 (X240 ethernet);
-;;    legacy carried species=ethernet without an iface name.
+;;  - prometheus: keyboard absent; defaulted to Qwerty (headless server).
+;;  - All users: style absent; defaulted to Emacs (cluster-wide).
 
 (ClusterProposal
   ;; ─── nodes ──────────────────────────────────────────────────────────
@@ -90,6 +91,33 @@
       false
       <>))
 
+    ([prometheus] (NodeProposal
+      LargeAiRouter
+      Max
+      Max
+      (Machine Metal X86_64 8 [GMKtec EVO-X2] None None None)
+      (Io
+        Qwerty
+        Uefi
+        <
+          ([/]     (Disk [/dev/disk/by-uuid/d3ad7f53-2470-4744-9ddf-b183c7c22f31] Btrfs <[subvol=root]>))
+          ([/boot] (Disk [/dev/disk/by-uuid/A252-A02B] Vfat <>))
+          ([/home] (Disk [/dev/disk/by-uuid/d3ad7f53-2470-4744-9ddf-b183c7c22f31] Btrfs <[subvol=home]>))
+          ([/nix]  (Disk [/dev/disk/by-uuid/d3ad7f53-2470-4744-9ddf-b183c7c22f31] Btrfs <[subvol=nix]>))
+          ([/var]  (Disk [/dev/disk/by-uuid/d3ad7f53-2470-4744-9ddf-b183c7c22f31] Btrfs <[subvol=var]>))
+        >
+        <>)
+      (NodePubKeys
+        [AAAAC3NzaC1lZDI1NTE5AAAAIAWX4CiSoep1+JuiYEpMzBj/H24eCYR+ZWaG3z2pg4Pk]
+        None
+        None)
+      <>
+      [5::5/128]
+      None
+      false
+      false
+      <>))
+
     ([tiger] (NodeProposal
       EdgeTesting
       Max
@@ -113,36 +141,6 @@
       <>
       [5::4/128]
       None
-      false
-      false
-      <>))
-
-    ([xerxes] (NodeProposal
-      Hybrid
-      Max
-      Max
-      (Machine Metal X86_64 2 [ThinkPadX240] None None None)
-      (Io
-        Colemak
-        Uefi
-        <
-          ([/]     (Disk [/dev/disk/by-uuid/c5788e39-39da-41f1-9f6c-4137abb0c406] Btrfs <[subvol=__active/root]>))
-          ([/boot] (Disk [/dev/disk/by-uuid/0A84-F61D] Vfat <>))
-          ([/home] (Disk [/dev/disk/by-uuid/c5788e39-39da-41f1-9f6c-4137abb0c406] Btrfs <[subvol=__active/home]>))
-          ([/nix]  (Disk [/dev/disk/by-uuid/c5788e39-39da-41f1-9f6c-4137abb0c406] Btrfs <[subvol=__active/nix]>))
-          ([/var]  (Disk [/dev/disk/by-uuid/c5788e39-39da-41f1-9f6c-4137abb0c406] Btrfs <[subvol=__active/var]>))
-        >
-        <(SwapDevice [/dev/disk/by-uuid/03a014a2-9d6c-4c8e-b4be-b01415ad1beb])>)
-      (NodePubKeys
-        [AAAAC3NzaC1lZDI1NTE5AAAAIE172GOItdwxQwJhnVeaSuHIwYrcj5bENafKL9y/mKZX]
-        [AAqjPi1kOaOWyZrwupTpHNL/7SYjYmaeDu1J+hNtVFA=]
-        (YggPubKeyEntry
-          [2748bfce76cf7c2a8d6d73241fadd4cad2a32f631df6a4be4bfb33969b0490e0]
-          [202:c5ba:18c:4984:1eab:9494:66df:291]
-          [302:c5ba:18c:4984]))
-      <(LinkLocalIp [enp0s25] [aec6:ecad:34e0:b41f])>
-      [5::1/128]
-      [oOeqiGZC+oaIL0rKirFyiJ4N6qDQWICZ2wRelLMOR0o=]
       false
       false
       <>))
@@ -210,9 +208,6 @@
         ([tiger]   (UserPubKeyEntry
           [AAAAC3NzaC1lZDI1NTE5AAAAILTm644m4foET1j+DGHl0gfEyGD9A4YltsNOidDUn3BG]
           [1785B4D2813D7ED1913A05FA74FF42B9153EEFF0]))
-        ([xerxes]  (UserPubKeyEntry
-          [AAAAC3NzaC1lZDI1NTE5AAAAICiHPTciuu3Yn8my604bWPo+T/9cIIMOqbrzPjqAt88/]
-          [DE688BEA4BAC3595A263EC1B76373B7C275899D9]))
         ([zeus]    (UserPubKeyEntry
           [AAAAC3NzaC1lZDI1NTE5AAAAIII6G7yMqNXJSuHDlH8R2JRSLSM6sZZLULaK8yDzquwO]
           [CEEA0DD02CA901E5F71A8CB3EB5C5EB902AA210E]))
@@ -225,11 +220,7 @@
       Emacs
       None
       None
-      <
-        ([xerxes] (UserPubKeyEntry
-          [AAAAC3NzaC1lZDI1NTE5AAAAIEygb1Ft1hIB+ExPGLq08im9rFYvOeYXX+NetgqjI3Db]
-          [63A149ECC539BAF2B001C57E9A55A566BCD48446]))
-      >))
+      <>))
   >
 
   ;; ─── domains ────────────────────────────────────────────────────────
@@ -240,11 +231,11 @@
     Max
     <>
     <
-      ([balboa]  Max)
-      ([ouranos] Max)
-      ([tiger]   Max)
-      ([xerxes]  Max)
-      ([zeus]    Max)
+      ([balboa]     Max)
+      ([ouranos]    Max)
+      ([prometheus] Max)
+      ([tiger]      Max)
+      ([zeus]       Max)
     >
     <
       ([bird]   Med)
