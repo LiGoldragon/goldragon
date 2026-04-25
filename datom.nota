@@ -66,7 +66,7 @@
 
     ([ouranos] (NodeProposal
       EdgeTesting
-      Max
+      Large
       Max
       (Machine Metal X86_64 12 [ThinkPadT14Gen5Intel] None None None)
       (Io
