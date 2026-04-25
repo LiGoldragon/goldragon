@@ -18,7 +18,7 @@
       Center
       None
       Min
-      (Machine Metal Arm64 4 [rock64] None None None)
+      (Machine Metal Arm64 4 [rock64] None None None None None)
       (Io
         Qwerty
         Uboot
@@ -35,13 +35,15 @@
       None
       false
       false
-      <>))
+      <>
+      false
+      false))
 
     ([klio] (NodeProposal
       Edge
       Max
       Med
-      (Machine Metal X86_64 2 [ThinkPadX250] None None None)
+      (Machine Metal X86_64 2 [ThinkPadX250] None None None 8 None)
       (Io
         Colemak
         Uefi
@@ -62,13 +64,15 @@
       None
       false
       false
-      <>))
+      <>
+      false
+      true))
 
     ([ouranos] (NodeProposal
       EdgeTesting
       Large
       Max
-      (Machine Metal X86_64 12 [ThinkPadT14Gen5Intel] None None None)
+      (Machine Metal X86_64 12 [ThinkPadT14Gen5Intel] None None None 12 32)
       (Io
         Colemak
         Uefi
@@ -89,13 +93,15 @@
       None
       true
       false
-      <>))
+      <>
+      false
+      true))
 
     ([prometheus] (NodeProposal
       LargeAiRouter
       Max
       Max
-      (Machine Metal X86_64 8 [GMKtec EVO-X2] None None None)
+      (Machine Metal X86_64 8 [GMKtec EVO-X2] None None None None 128)
       (Io
         Qwerty
         Uefi
@@ -116,13 +122,15 @@
       None
       false
       false
-      <>))
+      <>
+      false
+      false))
 
     ([tiger] (NodeProposal
       EdgeTesting
       Max
       Max
-      (Machine Metal X86_64 4 [ThinkPadE15Gen2Intel] None None None)
+      (Machine Metal X86_64 4 [ThinkPadE15Gen2Intel] None None None 12 None)
       (Io
         Colemak
         Uefi
@@ -143,13 +151,15 @@
       None
       false
       false
-      <>))
+      <>
+      false
+      true))
 
     ([zeus] (NodeProposal
       Edge
       Max
       Max
-      (Machine Metal X86_64 4 [ThinkPadT14Gen2Intel] None None None)
+      (Machine Metal X86_64 4 [ThinkPadT14Gen2Intel] None None None 12 None)
       (Io
         Colemak
         Uefi
@@ -170,7 +180,9 @@
       None
       false
       false
-      <>))
+      <>
+      false
+      true))
   >
 
   ;; ─── users ──────────────────────────────────────────────────────────
