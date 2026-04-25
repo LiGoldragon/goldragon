@@ -7,6 +7,7 @@
 ;;  - 2026-04-24: prometheus added (SSH host pubkey from ssh-keyscan;
 ;;    yggdrasil omitted — legacy 128-char value was a private key);
 ;;    xerxes removed (decommissioned); maikro removed (test user, never used).
+;;  - 2026-04-25: klio removed (decommissioned).
 ;;  - balboa: keyboard/bootloader were absent; defaulted to Qwerty/Uboot.
 ;;  - prometheus: keyboard absent; defaulted to Qwerty (headless server).
 ;;  - All users: style absent; defaulted to Emacs (cluster-wide).
@@ -38,35 +39,6 @@
       <>
       false
       false))
-
-    ([klio] (NodeProposal
-      Edge
-      Max
-      Med
-      (Machine Metal X86_64 2 [ThinkPadX250] None None None 8 None)
-      (Io
-        Colemak
-        Uefi
-        <
-          ([/]     (Disk [/dev/disk/by-uuid/ac609ecf-be8e-49ee-a892-2552e74d97e3] Ext4 <>))
-          ([/boot] (Disk [/dev/disk/by-uuid/BBE9-75C7] Vfat <>))
-        >
-        <(SwapDevice [/dev/disk/by-uuid/f86fc799-cbc2-473b-94ce-abfc1aa040f2])>)
-      (NodePubKeys
-        [AAAAC3NzaC1lZDI1NTE5AAAAID7E6ca/f2Bkz5Z9ZX4ASHXPLF7TYI/Z4C0/Is/Ljpyu]
-        [7N3PTqwWdA0p4XNjupKhLhVD5D0cEFcY/mUk3FRo5lI=]
-        (YggPubKeyEntry
-          [cef05ea020845caf73f2b3b3c15d27e3d55dd35b5155692a5464b7920b6b03b9]
-          [200:621f:42bf:bef7:46a1:181a:9898:7d45]
-          [300:621f:42bf:bef7]))
-      <>
-      [5::2/128]
-      None
-      false
-      false
-      <>
-      false
-      true))
 
     ([ouranos] (NodeProposal
       EdgeTesting
@@ -195,9 +167,6 @@
       None
       None
       <
-        ([klio]  (UserPubKeyEntry
-          [AAAAC3NzaC1lZDI1NTE5AAAAIK4NC1v3l3Q55Bue6aorvvAB/WoTEdeJXJfwZbxKAwbu]
-          [45D28CE63EFE23CB5FB9C093786C73450ECD3384]))
         ([tiger] (UserPubKeyEntry
           [AAAAC3NzaC1lZDI1NTE5AAAAIGhaPt/4ytqbJ9oPk5DE5WEK23N36pZRbvaEuqr/MtfF]
           [943502A0A9D25EF34C16E2ED2A120C26279C4248]))
