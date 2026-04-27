@@ -91,8 +91,11 @@
         [])
       (NodePubKeys
         "AAAAC3NzaC1lZDI1NTE5AAAAIAWX4CiSoep1+JuiYEpMzBj/H24eCYR+ZWaG3z2pg4Pk"
-        None
-        None)
+        "vCjiTyT4+sVkjvASSKteq7RZ1/b8hploA7kliKnrpKk="
+        (YggPubKeyEntry
+          "9adf4a76f8229421981cdaaaf4d0177a57119eee5848499eaa9e0fdf107363cf"
+          "200:ca41:6b12:fba:d7bc:cfc6:4aaa:165f"
+          "300:ca41:6b12:fba"))
       []
       "5::5/128"
       None
