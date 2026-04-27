@@ -40,7 +40,9 @@
       false
       []
       false
-      false))
+      false
+      false
+      None))
 
     (Entry "ouranos" (NodeProposal
       EdgeTesting
@@ -98,7 +100,9 @@
       false
       []
       false
-      false))
+      false
+      true
+      6))
 
     (Entry "tiger" (NodeProposal
       EdgeTesting
@@ -127,7 +131,9 @@
       false
       []
       false
-      true))
+      true
+      false
+      None))
 
     (Entry "zeus" (NodeProposal
       Edge
