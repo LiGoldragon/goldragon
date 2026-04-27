@@ -41,6 +41,7 @@
       []
       false
       false
+      None
       false
       None))
 
@@ -71,7 +72,8 @@
       false
       []
       false
-      true))
+      true
+      None))
 
     (Entry prometheus (NodeProposal
       LargeAiRouter
@@ -104,6 +106,7 @@
       []
       false
       false
+      (RouterInterfaces eno1 wlp195s0 TwoG 6 Wifi4)
       true
       6))
 
@@ -135,6 +138,7 @@
       []
       false
       true
+      None
       false
       None))
 
@@ -165,7 +169,8 @@
       false
       []
       false
-      true))
+      true
+      None))
   ]
 
   ;; ─── users ──────────────────────────────────────────────────────────
