@@ -8,209 +8,211 @@
 ;;    yggdrasil omitted — legacy 128-char value was a private key);
 ;;    xerxes removed (decommissioned); maikro removed (test user, never used).
 ;;  - 2026-04-25: klio removed (decommissioned).
+;;  - 2026-04-27: migrated v2 (`<>` + `[name]`) → v3 (`[]` sequences,
+;;    `(Entry key value)` map entries, quoted strings) for nota-codec.
 ;;  - balboa: keyboard/bootloader were absent; defaulted to Qwerty/Uboot.
 ;;  - prometheus: keyboard absent; defaulted to Qwerty (headless server).
 ;;  - All users: style absent; defaulted to Emacs (cluster-wide).
 
 (ClusterProposal
   ;; ─── nodes ──────────────────────────────────────────────────────────
-  <
-    ([balboa] (NodeProposal
+  [
+    (Entry "balboa" (NodeProposal
       Center
       None
       Min
-      (Machine Metal Arm64 4 [rock64] None None None None None)
+      (Machine Metal Arm64 4 "rock64" None None None None None)
       (Io
         Qwerty
         Uboot
-        <
-          ([/] (Disk [/dev/disk/by-label/NIXOS_SD] Ext4 <>))
-        >
-        <>)
+        [
+          (Entry "/" (Disk "/dev/disk/by-label/NIXOS_SD" Ext4 []))
+        ]
+        [])
       (NodePubKeys
-        [AAAAC3NzaC1lZDI1NTE5AAAAIPvxPTAPPKe6Ne9MW4C04Ihe0g4NS12xydci/JW59pIe]
+        "AAAAC3NzaC1lZDI1NTE5AAAAIPvxPTAPPKe6Ne9MW4C04Ihe0g4NS12xydci/JW59pIe"
         None
         None)
-      <>
+      []
       None
       None
       false
       false
-      <>
+      []
       false
       false))
 
-    ([ouranos] (NodeProposal
+    (Entry "ouranos" (NodeProposal
       EdgeTesting
       Large
       Max
-      (Machine Metal X86_64 12 [ThinkPadT14Gen5Intel] None None None 12 32)
+      (Machine Metal X86_64 12 "ThinkPadT14Gen5Intel" None None None 12 32)
       (Io
         Colemak
         Uefi
-        <
-          ([/]     (Disk [/dev/disk/by-uuid/38a88e99-3b6e-4de6-9772-05adddc3a1ca] Ext4 <>))
-          ([/boot] (Disk [/dev/disk/by-uuid/725A-E86A] Vfat <[fmask=0022] [dmask=0022]>))
-        >
-        <>)
+        [
+          (Entry "/"     (Disk "/dev/disk/by-uuid/38a88e99-3b6e-4de6-9772-05adddc3a1ca" Ext4 []))
+          (Entry "/boot" (Disk "/dev/disk/by-uuid/725A-E86A" Vfat ["fmask=0022" "dmask=0022"]))
+        ]
+        [])
       (NodePubKeys
-        [AAAAC3NzaC1lZDI1NTE5AAAAIP/v8LZFBXHMzflegvnHEgi6EyDn8P5i//iGjboVjtRr]
-        [AAqjPi1kOaOWyZrwupTpHNL/7SYjYmaeDu1J+hNtVFA=]
+        "AAAAC3NzaC1lZDI1NTE5AAAAIP/v8LZFBXHMzflegvnHEgi6EyDn8P5i//iGjboVjtRr"
+        "AAqjPi1kOaOWyZrwupTpHNL/7SYjYmaeDu1J+hNtVFA="
         (YggPubKeyEntry
-          [6487aabfe0d4f491a2986f4b41388ebcbd3c69a654f32feb9b1fba351bbd590a]
-          [201:6de1:5500:7cac:2db9:759e:42d2:fb1d]
-          [301:6de1:5500:7cac]))
-      <>
-      [5::3/128]
+          "6487aabfe0d4f491a2986f4b41388ebcbd3c69a654f32feb9b1fba351bbd590a"
+          "201:6de1:5500:7cac:2db9:759e:42d2:fb1d"
+          "301:6de1:5500:7cac"))
+      []
+      "5::3/128"
       None
       true
       false
-      <>
+      []
       false
       true))
 
-    ([prometheus] (NodeProposal
+    (Entry "prometheus" (NodeProposal
       LargeAiRouter
       Max
       Max
-      (Machine Metal X86_64 8 [GMKtec EVO-X2] None None None None 128)
+      (Machine Metal X86_64 8 "GMKtec EVO-X2" None None None None 128)
       (Io
         Qwerty
         Uefi
-        <
-          ([/]     (Disk [/dev/disk/by-uuid/d3ad7f53-2470-4744-9ddf-b183c7c22f31] Btrfs <[subvol=root]>))
-          ([/boot] (Disk [/dev/disk/by-uuid/A252-A02B] Vfat <>))
-          ([/home] (Disk [/dev/disk/by-uuid/d3ad7f53-2470-4744-9ddf-b183c7c22f31] Btrfs <[subvol=home]>))
-          ([/nix]  (Disk [/dev/disk/by-uuid/d3ad7f53-2470-4744-9ddf-b183c7c22f31] Btrfs <[subvol=nix]>))
-          ([/var]  (Disk [/dev/disk/by-uuid/d3ad7f53-2470-4744-9ddf-b183c7c22f31] Btrfs <[subvol=var]>))
-        >
-        <>)
+        [
+          (Entry "/"     (Disk "/dev/disk/by-uuid/d3ad7f53-2470-4744-9ddf-b183c7c22f31" Btrfs ["subvol=root"]))
+          (Entry "/boot" (Disk "/dev/disk/by-uuid/A252-A02B" Vfat []))
+          (Entry "/home" (Disk "/dev/disk/by-uuid/d3ad7f53-2470-4744-9ddf-b183c7c22f31" Btrfs ["subvol=home"]))
+          (Entry "/nix"  (Disk "/dev/disk/by-uuid/d3ad7f53-2470-4744-9ddf-b183c7c22f31" Btrfs ["subvol=nix"]))
+          (Entry "/var"  (Disk "/dev/disk/by-uuid/d3ad7f53-2470-4744-9ddf-b183c7c22f31" Btrfs ["subvol=var"]))
+        ]
+        [])
       (NodePubKeys
-        [AAAAC3NzaC1lZDI1NTE5AAAAIAWX4CiSoep1+JuiYEpMzBj/H24eCYR+ZWaG3z2pg4Pk]
+        "AAAAC3NzaC1lZDI1NTE5AAAAIAWX4CiSoep1+JuiYEpMzBj/H24eCYR+ZWaG3z2pg4Pk"
         None
         None)
-      <>
-      [5::5/128]
+      []
+      "5::5/128"
       None
       false
       false
-      <>
+      []
       false
       false))
 
-    ([tiger] (NodeProposal
+    (Entry "tiger" (NodeProposal
       EdgeTesting
       Max
       Max
-      (Machine Metal X86_64 4 [ThinkPadE15Gen2Intel] None None None 12 None)
+      (Machine Metal X86_64 4 "ThinkPadE15Gen2Intel" None None None 12 None)
       (Io
         Colemak
         Uefi
-        <
-          ([/]     (Disk [/dev/disk/by-uuid/158a5a78-3dbc-4c80-99b6-96e433bd836a] Ext4 <>))
-          ([/boot] (Disk [/dev/disk/by-uuid/50F3-9E04] Vfat <>))
-        >
-        <(SwapDevice [/dev/disk/by-uuid/4dcf2ad2-4677-483f-9900-046f0f53053a])>)
+        [
+          (Entry "/"     (Disk "/dev/disk/by-uuid/158a5a78-3dbc-4c80-99b6-96e433bd836a" Ext4 []))
+          (Entry "/boot" (Disk "/dev/disk/by-uuid/50F3-9E04" Vfat []))
+        ]
+        [(SwapDevice "/dev/disk/by-uuid/4dcf2ad2-4677-483f-9900-046f0f53053a")])
       (NodePubKeys
-        [AAAAC3NzaC1lZDI1NTE5AAAAIKeoCIfvbUDue17FBglmKF1N2cKH9CWsS5EcXOyBxq5T]
-        [/1SYuET5/IIscPvZcgZyrfsMcRiCFcmV051+0U5YXVM=]
+        "AAAAC3NzaC1lZDI1NTE5AAAAIKeoCIfvbUDue17FBglmKF1N2cKH9CWsS5EcXOyBxq5T"
+        "/1SYuET5/IIscPvZcgZyrfsMcRiCFcmV051+0U5YXVM="
         (YggPubKeyEntry
-          [38ed4c7c9ffd2e79361af3202f406810069fa37ff991e6d1d434a529ba75dfb3]
-          [202:3895:9c1b:16:8c36:4f28:66fe:85fc]
-          [302:3895:9c1b:16]))
-      <>
-      [5::4/128]
+          "38ed4c7c9ffd2e79361af3202f406810069fa37ff991e6d1d434a529ba75dfb3"
+          "202:3895:9c1b:16:8c36:4f28:66fe:85fc"
+          "302:3895:9c1b:16"))
+      []
+      "5::4/128"
       None
       false
       false
-      <>
+      []
       false
       true))
 
-    ([zeus] (NodeProposal
+    (Entry "zeus" (NodeProposal
       Edge
       Max
       Max
-      (Machine Metal X86_64 4 [ThinkPadT14Gen2Intel] None None None 12 None)
+      (Machine Metal X86_64 4 "ThinkPadT14Gen2Intel" None None None 12 None)
       (Io
         Colemak
         Uefi
-        <
-          ([/]     (Disk [/dev/disk/by-uuid/4bd0cbe7-082d-4f06-9283-978b834a85db] Ext4 <>))
-          ([/boot] (Disk [/dev/disk/by-uuid/1491-B84C] Vfat <[fmask=0022] [dmask=0022]>))
-        >
-        <>)
+        [
+          (Entry "/"     (Disk "/dev/disk/by-uuid/4bd0cbe7-082d-4f06-9283-978b834a85db" Ext4 []))
+          (Entry "/boot" (Disk "/dev/disk/by-uuid/1491-B84C" Vfat ["fmask=0022" "dmask=0022"]))
+        ]
+        [])
       (NodePubKeys
-        [AAAAC3NzaC1lZDI1NTE5AAAAIMAZxp1YpShbxSy1/Khu4wc57o+yWyuMh/80+dKHg6TW]
+        "AAAAC3NzaC1lZDI1NTE5AAAAIMAZxp1YpShbxSy1/Khu4wc57o+yWyuMh/80+dKHg6TW"
         None
         (YggPubKeyEntry
-          [f40458290d7a2d79efdbef4b5f046fb7f825626eda9d118e4f2b869c105f6ec4]
-          [200:17f7:4fad:e50b:a50c:2048:2169:41f7]
-          [300:17f7:4fad:e50b]))
-      <>
+          "f40458290d7a2d79efdbef4b5f046fb7f825626eda9d118e4f2b869c105f6ec4"
+          "200:17f7:4fad:e50b:a50c:2048:2169:41f7"
+          "300:17f7:4fad:e50b"))
+      []
       None
       None
       false
       false
-      <>
+      []
       false
       true))
-  >
+  ]
 
   ;; ─── users ──────────────────────────────────────────────────────────
-  <
-    ([bird] (UserProposal
+  [
+    (Entry "bird" (UserProposal
       Multimedia
       Max
       Colemak
       Emacs
       None
       None
-      <
-        ([tiger] (UserPubKeyEntry
-          [AAAAC3NzaC1lZDI1NTE5AAAAIGhaPt/4ytqbJ9oPk5DE5WEK23N36pZRbvaEuqr/MtfF]
-          [943502A0A9D25EF34C16E2ED2A120C26279C4248]))
-        ([zeus]  (UserPubKeyEntry
-          [AAAAC3NzaC1lZDI1NTE5AAAAIMioAruS5HbgT8hUOVAgKKUP0P6s4gXliVb+AcrtWr4V]
-          [962157586FC998370969F675812FE1EBBD9CF8DA]))
-      >))
+      [
+        (Entry "tiger" (UserPubKeyEntry
+          "AAAAC3NzaC1lZDI1NTE5AAAAIGhaPt/4ytqbJ9oPk5DE5WEK23N36pZRbvaEuqr/MtfF"
+          "943502A0A9D25EF34C16E2ED2A120C26279C4248"))
+        (Entry "zeus"  (UserPubKeyEntry
+          "AAAAC3NzaC1lZDI1NTE5AAAAIMioAruS5HbgT8hUOVAgKKUP0P6s4gXliVb+AcrtWr4V"
+          "962157586FC998370969F675812FE1EBBD9CF8DA"))
+      ]))
 
-    ([li] (UserProposal
+    (Entry "li" (UserProposal
       Unlimited
       Max
       Colemak
       Emacs
-      [LiGoldragon]
+      "LiGoldragon"
       None
-      <
-        ([ouranos] (UserPubKeyEntry
-          [AAAAC3NzaC1lZDI1NTE5AAAAIHEtxRF2wjSD1DzlYCW9BivOsz9X0P95msrbXvGATy/p]
-          [7FAFE190D2C749B222B249E54E5A7AD71C1BDDBD]))
-        ([tiger]   (UserPubKeyEntry
-          [AAAAC3NzaC1lZDI1NTE5AAAAILTm644m4foET1j+DGHl0gfEyGD9A4YltsNOidDUn3BG]
-          [1785B4D2813D7ED1913A05FA74FF42B9153EEFF0]))
-        ([zeus]    (UserPubKeyEntry
-          [AAAAC3NzaC1lZDI1NTE5AAAAIII6G7yMqNXJSuHDlH8R2JRSLSM6sZZLULaK8yDzquwO]
-          [CEEA0DD02CA901E5F71A8CB3EB5C5EB902AA210E]))
-      >))
+      [
+        (Entry "ouranos" (UserPubKeyEntry
+          "AAAAC3NzaC1lZDI1NTE5AAAAIHEtxRF2wjSD1DzlYCW9BivOsz9X0P95msrbXvGATy/p"
+          "7FAFE190D2C749B222B249E54E5A7AD71C1BDDBD"))
+        (Entry "tiger"   (UserPubKeyEntry
+          "AAAAC3NzaC1lZDI1NTE5AAAAILTm644m4foET1j+DGHl0gfEyGD9A4YltsNOidDUn3BG"
+          "1785B4D2813D7ED1913A05FA74FF42B9153EEFF0"))
+        (Entry "zeus"    (UserPubKeyEntry
+          "AAAAC3NzaC1lZDI1NTE5AAAAIII6G7yMqNXJSuHDlH8R2JRSLSM6sZZLULaK8yDzquwO"
+          "CEEA0DD02CA901E5F71A8CB3EB5C5EB902AA210E"))
+      ]))
 
-  >
+  ]
 
   ;; ─── domains ────────────────────────────────────────────────────────
-  <>
+  []
 
   ;; ─── trust ──────────────────────────────────────────────────────────
   (ClusterTrust
     Max
-    <>
-    <
-      ([balboa]     Max)
-      ([ouranos]    Max)
-      ([prometheus] Max)
-      ([tiger]      Max)
-      ([zeus]       Max)
-    >
-    <
-      ([bird]   Med)
-      ([li]     Max)
-    >))
+    []
+    [
+      (Entry "balboa"     Max)
+      (Entry "ouranos"    Max)
+      (Entry "prometheus" Max)
+      (Entry "tiger"      Max)
+      (Entry "zeus"       Max)
+    ]
+    [
+      (Entry "bird"   Med)
+      (Entry "li"     Max)
+    ]))
