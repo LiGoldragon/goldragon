@@ -60,7 +60,7 @@
         [])
       (NodePubKeys
         "AAAAC3NzaC1lZDI1NTE5AAAAIP/v8LZFBXHMzflegvnHEgi6EyDn8P5i//iGjboVjtRr"
-        "AAqjPi1kOaOWyZrwupTpHNL/7SYjYmaeDu1J+hNtVFA="
+        "5dAiX3j76V5tKyvTYxjrCoZjz3IuunoyK+J282hmFrs="
         (YggPubKeyEntry
           "6487aabfe0d4f491a2986f4b41388ebcbd3c69a654f32feb9b1fba351bbd590a"
           "201:6de1:5500:7cac:2db9:759e:42d2:fb1d"
@@ -157,7 +157,7 @@
         [])
       (NodePubKeys
         "AAAAC3NzaC1lZDI1NTE5AAAAIMAZxp1YpShbxSy1/Khu4wc57o+yWyuMh/80+dKHg6TW"
-        None
+        "35/dVZHU8IKAHRMLgmYKW8ZulqATh4sSueMkthLVM2g="
         (YggPubKeyEntry
           "f40458290d7a2d79efdbef4b5f046fb7f825626eda9d118e4f2b869c105f6ec4"
           "200:17f7:4fad:e50b:a50c:2048:2169:41f7"
