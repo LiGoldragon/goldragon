@@ -73,6 +73,10 @@
       []
       false
       true
+      None
+      ;; online — None = default Some(true)
+      None
+      ;; nb_of_build_cores — None = default Some(1)
       None))
 
     (Entry prometheus (NodeProposal
@@ -170,6 +174,10 @@
       []
       false
       true
+      None
+      ;; online — None = default Some(true)
+      None
+      ;; nb_of_build_cores — None = default Some(1)
       None))
   ]
 
@@ -189,7 +197,11 @@
         (Entry zeus  (UserPubKeyEntry
           "AAAAC3NzaC1lZDI1NTE5AAAAIMioAruS5HbgT8hUOVAgKKUP0P6s4gXliVb+AcrtWr4V"
           "962157586FC998370969F675812FE1EBBD9CF8DA"))
-      ]))
+      ]
+      ;; editor — None = use smart default (Codium because Multimedia is not isCodeDev)
+      None
+      ;; text_size — None = use default (Medium)
+      None))
 
     (Entry li (UserProposal
       Unlimited
