@@ -208,7 +208,11 @@
         (Entry zeus    (UserPubKeyEntry
           "AAAAC3NzaC1lZDI1NTE5AAAAIII6G7yMqNXJSuHDlH8R2JRSLSM6sZZLULaK8yDzquwO"
           "CEEA0DD02CA901E5F71A8CB3EB5C5EB902AA210E"))
-      ]))
+      ]
+      ;; editor — let smart default pick (Emacs because Unlimited → isCodeDev)
+      None
+      ;; textSize — smaller fonts everywhere; default would be Medium
+      Small))
 
   ]
 
