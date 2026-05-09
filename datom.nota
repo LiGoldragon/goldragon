@@ -19,7 +19,7 @@
   [
     (Entry balboa (NodeProposal
       Center
-      None
+      Zero
       Min
       (Machine Metal Arm64 4 rock64 None None None None None)
       (Io
@@ -243,6 +243,6 @@
       (Entry zeus       Max)
     ]
     [
-      (Entry bird   Med)
+      (Entry bird   Medium)
       (Entry li     Max)
     ]))
