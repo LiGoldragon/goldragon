@@ -44,8 +44,7 @@
       None
       false
       None
-      false
-      false))
+      (NodeServices None None)))
 
     (Entry ouranos (NodeProposal
       EdgeTesting
@@ -80,9 +79,8 @@
       None
       ;; nb_of_build_cores — None = default Some(1)
       None
-      ;; tailnet_client / tailnet_controller
-      true
-      true))
+      ;; services
+      (NodeServices Client Server)))
 
     (Entry prometheus (NodeProposal
       LargeAiRouter
@@ -118,8 +116,7 @@
       (RouterInterfaces eno1 wlp195s0 TwoG 6 Wifi4)
       true
       6
-      true
-      false))
+      (NodeServices Client None)))
 
     (Entry tiger (NodeProposal
       EdgeTesting
@@ -152,8 +149,7 @@
       None
       false
       None
-      false
-      false))
+      (NodeServices None None)))
 
     (Entry zeus (NodeProposal
       Edge
@@ -188,8 +184,7 @@
       None
       ;; nb_of_build_cores — None = default Some(1)
       None
-      false
-      false))
+      (NodeServices None None)))
   ]
 
   ;; ─── users ──────────────────────────────────────────────────────────
