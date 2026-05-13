@@ -80,7 +80,7 @@
       ;; nb_of_build_cores — None = default Some(1)
       None
       ;; services
-      (NodeServices Client Server)))
+      (NodeServices Client (Server 8443 "tailnet.goldragon.criome"))))
 
     (Entry prometheus (NodeProposal
       LargeAiRouter
