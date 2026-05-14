@@ -113,7 +113,7 @@
       []
       false
       false
-      (RouterInterfaces eno1 wlp195s0 TwoG 6 Wifi4)
+      (RouterInterfaces eno1 wlp195s0 TwoG 6 Wifi4 (SecretReference routerWifiSaePasswords))
       true
       6
       (NodeServices Client None)))
