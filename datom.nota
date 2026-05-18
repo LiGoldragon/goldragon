@@ -43,8 +43,7 @@
       false
       None
       false
-      None
-      (NodeServices None None false)))
+      []))
 
     (Entry ouranos (NodeProposal
       EdgeTesting
@@ -77,10 +76,13 @@
       None
       ;; online — None = default Some(true)
       None
-      ;; nb_of_build_cores — None = default Some(1)
-      None
       ;; services
-      (NodeServices Client (Server 8443 "tailnet.goldragon.criome") true)))
+      [
+        (TailnetClient)
+        (TailnetController)
+        (NixBuilder None)
+        (PersonaDevelopment [(GitoliteServer)])
+      ]))
 
     (Entry prometheus (NodeProposal
       LargeAiRouter
@@ -115,8 +117,11 @@
       false
       (RouterInterfaces eno1 wlp195s0 TwoG 6 Wifi4 (SecretReference routerWifiSaePasswords))
       true
-      6
-      (NodeServices Client None false)))
+      [
+        (TailnetClient)
+        (NixBuilder 6)
+        (NixCache)
+      ]))
 
     (Entry tiger (NodeProposal
       EdgeTesting
@@ -148,8 +153,9 @@
       true
       None
       false
-      None
-      (NodeServices None None false)))
+      [
+        (NixBuilder None)
+      ]))
 
     (Entry zeus (NodeProposal
       Edge
@@ -182,9 +188,7 @@
       None
       ;; online — None = default Some(true)
       None
-      ;; nb_of_build_cores — None = default Some(1)
-      None
-      (NodeServices None None false)))
+      []))
   ]
 
   ;; ─── users ──────────────────────────────────────────────────────────
