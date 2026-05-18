@@ -44,7 +44,7 @@
       None
       false
       None
-      (NodeServices None None None)))
+      (NodeServices None None false)))
 
     (Entry ouranos (NodeProposal
       EdgeTesting
@@ -80,10 +80,7 @@
       ;; nb_of_build_cores — None = default Some(1)
       None
       ;; services
-      (NodeServices
-        Client
-        (Server 8443 "tailnet.goldragon.criome")
-        (Workstation (RepositoryReceiveRole true)))))
+      (NodeServices Client (Server 8443 "tailnet.goldragon.criome") true)))
 
     (Entry prometheus (NodeProposal
       LargeAiRouter
@@ -119,7 +116,7 @@
       (RouterInterfaces eno1 wlp195s0 TwoG 6 Wifi4 (SecretReference routerWifiSaePasswords))
       true
       6
-      (NodeServices Client None None)))
+      (NodeServices Client None false)))
 
     (Entry tiger (NodeProposal
       EdgeTesting
@@ -152,7 +149,7 @@
       None
       false
       None
-      (NodeServices None None None)))
+      (NodeServices None None false)))
 
     (Entry zeus (NodeProposal
       Edge
@@ -187,7 +184,7 @@
       None
       ;; nb_of_build_cores — None = default Some(1)
       None
-      (NodeServices None None None)))
+      (NodeServices None None false)))
   ]
 
   ;; ─── users ──────────────────────────────────────────────────────────
