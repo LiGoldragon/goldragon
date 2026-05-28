@@ -8,7 +8,9 @@ node, user, and trust relation in the cluster.
 `datom.nota` — positional records per the
 [nota](https://github.com/LiGoldragon/nota) data format. Fed to
 `horizon-cli` (from horizon-rs) on stdin; the projected horizon comes
-back as JSON (default) or nota (`--format nota`).
+back as JSON (default) or nota (`--format nota`). Router interface
+records include production access facts such as Prometheus' primary
+router Wi-Fi and its independent backup Wi-Fi.
 
 ```
 horizon-cli --cluster goldragon --node tiger < datom.nota > horizon.json
