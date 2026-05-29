@@ -91,7 +91,7 @@
       []
       False
       False
-      (Some (eno1 wlp195s0 TwoG 6 Wifi4 (Some (routerWifiSaePasswords)) (Some (wlp199s0f0u4 [CRIOM Backup] TwoG 11 Wifi4 (routerBackupWifiPassword)))))
+      (Some (eno1 wlp195s0 TwoG 6 Wifi4 (Some (routerWifiSaePasswords)) (Some (wlp199s0f0u4 criome-backup TwoG 11 Wifi4 (routerBackupWifiPassword)))))
       (Some True)
       [(TailnetClient) (NixBuilder (Some 6)) (NixCache)])
     tiger (EdgeTesting
