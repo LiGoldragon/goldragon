@@ -37,7 +37,8 @@
             Vfat
             [[fmask=0022] [dmask=0022]])
         }
-        [])
+        [([/swapfile] (Some 32768))]
+        (Some (25)))
       ([AAAAC3NzaC1lZDI1NTE5AAAAIP/v8LZFBXHMzflegvnHEgi6EyDn8P5i//iGjboVjtRr]
         (Some [5dAiX3j76V5tKyvTYxjrCoZjz3IuunoyK+J282hmFrs=])
         (Some
