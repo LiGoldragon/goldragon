@@ -6,7 +6,7 @@
     balboa (Center
       Zero
       Min
-      (Metal (Some Arm64) 4 (Some rock64) None None None None None)
+      (Metal (Some Arm64) 4 (Some rock64) None None None None None None None [])
       (Qwerty
         Uboot
         {
@@ -28,7 +28,7 @@
     ouranos (EdgeTesting
       Large
       Max
-      (Metal (Some X86_64) 12 (Some ThinkPadT14Gen5Intel) None None None (Some 12) (Some 32))
+      (Metal (Some X86_64) 12 (Some ThinkPadT14Gen5Intel) None None None (Some 12) (Some 32) None None [])
       (Colemak
         Uefi
         {
@@ -59,7 +59,7 @@
     prometheus (LargeAiRouter
       Max
       Max
-      (Metal (Some X86_64) 8 (Some [GMKtec EVO-X2]) None None None None (Some 128))
+      (Metal (Some X86_64) 8 (Some [GMKtec EVO-X2]) None None None None (Some 128) None None [])
       (Qwerty
         Uefi
         {
@@ -94,11 +94,11 @@
       False
       (Some (eno1 wlp195s0 TwoG 6 Wifi4 (Some (routerWifiSaePasswords)) (Some (wlp199s0f0u4 criome-backup TwoG 11 Wifi4 (routerBackupWifiPassword)))))
       (Some True)
-      [(TailnetClient) (NixBuilder (Some 6)) (NixCache)])
+      [(TailnetClient) (NixBuilder (Some 6)) (NixCache) (VmHost 169.254.100.0/22 Available (Some 4))])
     tiger (EdgeTesting
       Max
       Max
-      (Metal (Some X86_64) 4 (Some ThinkPadE15Gen2Intel) None None None (Some 12) None)
+      (Metal (Some X86_64) 4 (Some ThinkPadE15Gen2Intel) None None None (Some 12) None None None [])
       (Colemak
         Uefi
         {
@@ -126,7 +126,7 @@
     zeus (Edge
       Max
       Max
-      (Metal (Some X86_64) 4 (Some ThinkPadT14Gen2Intel) None None None (Some 12) None)
+      (Metal (Some X86_64) 4 (Some ThinkPadT14Gen2Intel) None None None (Some 12) None None None [])
       (Colemak
         Uefi
         {
@@ -153,6 +153,30 @@
       None
       None
       [])
+    vm-testing (TestVm
+      Min
+      Max
+      (Pod (Some X86_64) 4 None None (Some prometheus) None None (Some 8) (Some 40) (Some home-lab) [])
+      (Qwerty
+        Uefi
+        {
+          / (/dev/vda Ext4 [])
+        }
+        [])
+      (AAAAC3NzaC1lZDI1NTE5AAAAID1fnOKW4Z4Ia7KsdLAIyptCb9m1W+HIIGdazjlAYfi2
+        None
+        None)
+      []
+      (Some 5::6/128)
+      None
+      False
+      False
+      []
+      False
+      False
+      None
+      (Some True)
+      [(TailnetClient)])
   }
   {
     bird (Multimedia
@@ -195,8 +219,10 @@
       prometheus Max
       tiger Max
       zeus Max
+      vm-testing Max
     }
     {
       bird Medium
       li Max
-    }))
+    })
+  (criome [goldragon.criome.net]))
