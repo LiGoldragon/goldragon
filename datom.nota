@@ -25,6 +25,28 @@
       None
       (Some False)
       [])
+    doris (CloudNode
+      Min
+      Max
+      (Metal (Some X86_64) 1 (Some [DigitalOcean Droplet]) None None None None (Some 2) (Some 25) (Some digitalocean-nyc3) [])
+      (Qwerty
+        Mbr
+        {
+          / (/dev/vda Ext4 [])
+        }
+        [])
+      (AAAAC3NzaC1lZDI1NTE5AAAAIDqIzfIew2Kt74D1axqbitgG/KP6WtT4bFl0zX7S+/4L None None)
+      []
+      None
+      None
+      False
+      False
+      []
+      False
+      False
+      None
+      None
+      [(TailnetClient)])
     ouranos (EdgeTesting
       Large
       Max
@@ -220,6 +242,7 @@
       tiger Max
       zeus Max
       vm-testing Max
+      doris Max
     }
     {
       bird Medium
