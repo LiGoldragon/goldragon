@@ -32,7 +32,7 @@
       (Qwerty
         Mbr
         {
-          / (/dev/vda Ext4 [])
+          / (/dev/disk/by-label/nixos Ext4 [])
         }
         [])
       (AAAAC3NzaC1lZDI1NTE5AAAAIDqIzfIew2Kt74D1axqbitgG/KP6WtT4bFl0zX7S+/4L None None)
