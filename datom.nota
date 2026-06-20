@@ -3,7 +3,9 @@
 ;; Canonical Nota: bracket strings, curly maps, Pascal booleans.
 ;; Cloud-hosted nodes (CloudNode species, e.g. doris) carry low trust (Min):
 ;; real but minimally-trusted members, kept out of builder/dispatcher/cache/
-;; admin roles because they run on third-party provider hardware. Spirit 5pf6.
+;; admin roles because they run on third-party provider hardware. A cloud node
+;; is provisioned only once it has a concrete role; doris is DECLARED but
+;; UNPROVISIONED, its host key a PLACEHOLDER, until then. Spirit 5pf6, zeqq.
 
 ({
     balboa (Center
@@ -38,6 +40,9 @@
           / (/dev/disk/by-label/nixos Ext4 [])
         }
         [])
+      ;; PLACEHOLDER host key — doris is unprovisioned (no role yet). Replace
+      ;; with the real droplet key (read from /etc/ssh/ssh_host_ed25519_key at
+      ;; first boot) when doris is provisioned. Spirit zeqq.
       (AAAAC3NzaC1lZDI1NTE5AAAAIDqIzfIew2Kt74D1axqbitgG/KP6WtT4bFl0zX7S+/4L None None)
       []
       None
