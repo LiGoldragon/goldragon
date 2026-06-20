@@ -1,6 +1,9 @@
 ;; goldragon — production cluster proposal for the LiGoldragon kriom.
 ;; Schema: horizon-rs ClusterProposal (positional records, source-decl order).
 ;; Canonical Nota: bracket strings, curly maps, Pascal booleans.
+;; Cloud-hosted nodes (CloudNode species, e.g. doris) carry low trust (Min):
+;; real but minimally-trusted members, kept out of builder/dispatcher/cache/
+;; admin roles because they run on third-party provider hardware. Spirit 5pf6.
 
 ({
     balboa (Center
@@ -27,7 +30,7 @@
       [])
     doris (CloudNode
       Min
-      Max
+      Min
       (Metal (Some X86_64) 1 (Some [DigitalOcean Droplet]) None None None None (Some 2) (Some 25) (Some digitalocean-nyc3) [])
       (Qwerty
         Mbr
