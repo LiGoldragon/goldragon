@@ -6,6 +6,14 @@
 single source of truth for every node, user, and trust relation in the
 LiGoldragon kriom. This is production data, not a fixture.
 
+The repository is **public** and not authorization-gated. `datom.nota` carries
+no secret values, only references to them; the referenced secret material is
+held encrypted under `secrets/` (SOPS). Treat the repository and its data as
+public — only those encrypted values are protected, not the repo. A live
+horizon *projection* of this data may sit owner-only under
+`/var/lib/lojix/generated-inputs/goldragon/`, but that local projection's
+permissions are not a property of this public source repository.
+
 The repository holds no code and no build: there is no `datom.nix` and no
 `flake.nix`. Consumers fetch the data as a file.
 

@@ -3,6 +3,13 @@
 Cluster proposal for the LiGoldragon kriom. Production data for every
 node, user, and trust relation in the cluster.
 
+This repository is **public** and not authorization-gated. `datom.nota`
+holds no secret values — only references to them. The referenced secret
+material (for example the router SAE passwords) lives encrypted in
+`secrets/` (SOPS) and never appears in plaintext here, so the repository
+and its data are safe to treat as public. Only those encrypted values
+are protected; the repo itself is not private.
+
 ## Wire format
 
 `datom.nota` — positional records per the
