@@ -22,13 +22,26 @@
 ;; together. sema-engine is deliberately out of the set: spirit pins it at
 ;; old revisions, which the tool refuses to bump (a collected UnbumpablePin)
 ;; until full multi-pin awareness exists.
+;;
+;; persona is a configured consumer: it pins signal-router / signal-harness /
+;; signal-frame and is the stale writer in the w46v skew (primary-w46v). It
+;; belongs in the sweep so its contract pins converge with the other
+;; consumers. NOTE (w46v, 2026-07-03): router/message are deliberately NOT
+;; added. persona's whole-engine gate builds the router-daemon / message-router
+;; it launches from persona's own flake inputs persona-router / persona-message,
+;; which are git+ssh inputs (git+ssh://git@github.com/LiGoldragon/{router,message}.git)
+;; frozen at their main tips. The tool's flake-lock matcher only recognizes
+;; type=github inputs, so a synchronizer staging branch on router/message would
+;; not change what that gate builds; aligning that path is separate work
+;; (git+ssh flake-input support in the tool + a flake-input relock/land step).
 
 ((GitHub LiGoldragon)
  /git/github.com/LiGoldragon
  [(signal-frame AtRoot)
   (signal-router AtRoot)
   (signal-harness AtRoot)
-  (introspect AtRoot)]
+  (introspect AtRoot)
+  (persona AtRoot)]
  (main synchronizer)
  (ClusterRole (NixBuilder (ClusterProposal /git/github.com/LiGoldragon/goldragon/datom.nota)))
  (WireExercising [daemon daemons socket sockets wire])
