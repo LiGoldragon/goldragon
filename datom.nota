@@ -177,6 +177,54 @@
       None
       (Some True)
       [(TailnetClient)])
+    mirror-alpha (TestVm
+      Min
+      Max
+      (Pod (Some X86_64) 4 None None (Some prometheus) None None (Some 8) (Some 40) (Some home-lab) [])
+      (Qwerty
+        Uefi
+        {
+          / (/dev/vda Ext4 [])
+        }
+        [])
+      (AAAAC3NzaC1lZDI1NTE5AAAAIJEUzIXi0SSbJ3IkGxva2LbV7CtNCk1pdd/PR0Q2Nip8
+        None
+        None)
+      []
+      (Some 5::7/128)
+      None
+      False
+      False
+      []
+      False
+      False
+      None
+      (Some True)
+      [(TailnetClient)])
+    mirror-beta (TestVm
+      Min
+      Max
+      (Pod (Some X86_64) 4 None None (Some prometheus) None None (Some 8) (Some 40) (Some home-lab) [])
+      (Qwerty
+        Uefi
+        {
+          / (/dev/vda Ext4 [])
+        }
+        [])
+      (AAAAC3NzaC1lZDI1NTE5AAAAIHyKCowaN7+eTLF4QLEtozm7KqZrX3V3g7jIlasr7QXR
+        None
+        None)
+      []
+      (Some 5::8/128)
+      None
+      False
+      False
+      []
+      False
+      False
+      None
+      (Some True)
+      [(TailnetClient)])
   }
   {
     bird (Multimedia
