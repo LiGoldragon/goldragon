@@ -180,7 +180,7 @@
     mirror-alpha (TestVm
       Min
       Max
-      (Pod (Some X86_64) 4 None None (Some prometheus) None None (Some 8) (Some 40) (Some home-lab) [])
+      (Pod (Some X86_64) 2 None None (Some prometheus) None None (Some 4) (Some 8) (Some home-lab) [])
       (Qwerty
         Uefi
         {
@@ -204,7 +204,7 @@
     mirror-beta (TestVm
       Min
       Max
-      (Pod (Some X86_64) 4 None None (Some prometheus) None None (Some 8) (Some 40) (Some home-lab) [])
+      (Pod (Some X86_64) 2 None None (Some prometheus) None None (Some 4) (Some 8) (Some home-lab) [])
       (Qwerty
         Uefi
         {
