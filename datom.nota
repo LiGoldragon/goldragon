@@ -24,7 +24,7 @@
       False
       None
       (Some False)
-      [])
+      [(AgentIntercomLocal)])
     ouranos (EdgeTesting
       Large
       Max
@@ -55,7 +55,7 @@
       True
       None
       None
-      [(TailnetClient) (TailnetController) (AgentIntercomGateway) (NixBuilder None) (PersonaDevelopment [(GitoliteServer)])])
+      [(AgentIntercomLocal) (AgentIntercomGraphical) (TailnetClient) (TailnetController) (NixBuilder None) (PersonaDevelopment [(GitoliteServer)])])
     prometheus (LargeAiRouter
       Max
       Max
@@ -94,7 +94,7 @@
       False
       (Some (eno1 wlp195s0 TwoG 6 Wifi4 (Some (routerWifiSaePasswords)) (Some (wlp199s0f0u4 criome-backup TwoG 11 Wifi4 (routerBackupWifiPassword)))))
       (Some True)
-      [(TailnetClient) (AgentIntercomPeer) (NixBuilder (Some 6)) (NixCache) (VmHost 169.254.100.0/22 Available (Some 4))])
+      [(AgentIntercomLocal) (TailnetClient) (NixBuilder (Some 6)) (NixCache) (VmHost 169.254.100.0/22 Available (Some 4))])
     tiger (EdgeTesting
       Max
       Max
@@ -122,7 +122,7 @@
       True
       None
       (Some False)
-      [(NixBuilder None)])
+      [(AgentIntercomLocal) (AgentIntercomGraphical) (NixBuilder None)])
     zeus (Edge
       Max
       Max
@@ -152,7 +152,7 @@
       True
       None
       None
-      [])
+      [(AgentIntercomLocal) (AgentIntercomGraphical)])
     vm-testing (TestVm
       Min
       Max
@@ -176,7 +176,7 @@
       False
       None
       (Some True)
-      [(TailnetClient)])
+      [(AgentIntercomLocal) (TailnetClient)])
     mirror-alpha (TestVm
       Min
       Max
@@ -200,7 +200,7 @@
       False
       None
       (Some True)
-      [(TailnetClient)])
+      [(AgentIntercomLocal) (TailnetClient)])
     mirror-beta (TestVm
       Min
       Max
@@ -224,7 +224,7 @@
       False
       None
       (Some True)
-      [(TailnetClient)])
+      [(AgentIntercomLocal) (TailnetClient)])
   }
   {
     bird (Multimedia
