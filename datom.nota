@@ -152,7 +152,7 @@
       True
       None
       None
-      [(AgentIntercomLocal) (AgentIntercomGraphical)])
+      [])
     vm-testing (TestVm
       Min
       Max
