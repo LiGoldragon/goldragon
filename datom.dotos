@@ -1,6 +1,6 @@
 ;; goldragon — production cluster proposal for the LiGoldragon kriom.
 ;; Schema: horizon-rs ClusterProposal (positional records, source-decl order).
-;; Canonical Nota: bracket strings, curly maps, Pascal booleans.
+;; Canonical Dotos: bracket strings, curly maps, Pascal booleans.
 
 ({
     balboa (Center
