@@ -37,3 +37,10 @@ Nix consumers run `horizon-cli` and read the result via
   materializer must accept it before deployment. On Ouranos, every `nix run`
   used for this validation must set `max-jobs = 0`, use only
   `@/etc/nix/machines`, and disable fallback so Prometheus performs realization.
+
+## Protos estate status
+
+Protos estate scope: out of scope
+Stack: not applicable
+Role: data
+This is scope metadata, not a stack.
