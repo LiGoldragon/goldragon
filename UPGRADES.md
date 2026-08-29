@@ -12,10 +12,19 @@ Horizon revision, normalized the intentional `GitoliteServer {}` API break to
 the current unit variant, then encoded with Horizon 0.5.0. The old data remains
 recoverable outside this repository during release verification.
 
-`synchronizer.dotos` is deliberately unchanged: it is SynchronizerConfig data,
-outside the ClusterProposal/Horizon schema boundary, and needs its own owning
-tool migration. This repository therefore does not claim a global no-Dotos
-conversion.
+At the time of the ClusterProposal conversion, `synchronizer.dotos` remained
+outside Horizon's ownership. Its later Synchronizer-owned migration is recorded
+below; this repository still does not claim unrelated data boundaries migrated.
+
+## SynchronizerConfig: `synchronizer.dotos` → `synchronizer.datomic`
+
+The Synchronizer-owned configuration is now `synchronizer.datomic`, decoded
+and emitted by Synchronizer 0.3.0 through its Ethos-authored Datomic schema.
+The one-shot migration used the pinned legacy Synchronizer decoder once, then
+the new `Text<SynchronizerConfig>` encoder. The sole intentional value change
+is its cluster-source path: `datom.nota` became the already-migrated
+`proposal.datomic`. The legacy input remains recoverable outside this data
+repository during release verification; no compatibility decoder ships.
 
 ## Remove Agent Intercom node services
 
