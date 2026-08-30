@@ -1,9 +1,10 @@
 # Upgrades
 
-## ClusterProposal: `datom.dotos` → `proposal.datomic`
+## ClusterProposal: `datom.dotos` → `proposal.datom`
 
-The Horizon-owned ClusterProposal source is now `proposal.datomic`, encoded as
-positional Datomic and accepted by Horizon 0.5.0. Consumers must replace the
+The Horizon-owned ClusterProposal source is now the canonical named artifact
+`proposal.datom`, embodied by Horizon 0.5.0 as `Text<ClusterProposal>`.
+Consumers must replace the
 old path and use the current Horizon Text edge; no legacy Dotos parser or
 compatibility path is shipped.
 
@@ -23,7 +24,7 @@ and emitted by Synchronizer 0.3.0 through its Ethos-authored Datomic schema.
 The one-shot migration used the pinned legacy Synchronizer decoder once, then
 the new `Text<SynchronizerConfig>` encoder. The sole intentional value change
 is its cluster-source path: `datom.nota` became the already-migrated
-`proposal.datomic`. The legacy input remains recoverable outside this data
+`proposal.datom`. The legacy input remains recoverable outside this data
 repository during release verification; no compatibility decoder ships.
 
 ## Remove Agent Intercom node services

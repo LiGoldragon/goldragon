@@ -3,7 +3,7 @@
 Cluster proposal for the LiGoldragon kriom. Production data for every
 node, user, and trust relation in the cluster.
 
-This repository is **public** and not authorization-gated. `proposal.datomic`
+This repository is **public** and not authorization-gated. `proposal.datom`
 holds no secret values — only references to them. The referenced secret
 material (for example the router SAE passwords) lives encrypted in
 `secrets/` (SOPS) and never appears in plaintext here, so the repository
@@ -12,7 +12,7 @@ are protected; the repo itself is not private.
 
 ## Wire format
 
-`proposal.datomic` — positional records per the
+`proposal.datom` — positional records per the
 [Datomic](https://github.com/LiGoldragon/datomic) data format. Fed to
 `horizon-cli` (from horizon-rs) on stdin; the projected horizon comes
 back as JSON. Canonical records use brace bodies, maps use `«key value»`,
@@ -21,7 +21,7 @@ records include production access facts such as Prometheus' primary router
 Wi-Fi and its independent backup Wi-Fi.
 
 ```
-horizon-cli --cluster goldragon --node tiger < proposal.datomic > horizon.json
+horizon-cli --cluster goldragon --node tiger < proposal.datom > horizon.json
 ```
 
 ## Validation contract
