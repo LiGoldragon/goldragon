@@ -1,46 +1,31 @@
 # goldragon
 
-Cluster proposal for the LiGoldragon kriom. Production data for every
-node, user, and trust relation in the cluster.
+Public cluster-local Horizon data for the Goldragon cluster. It contains no
+secret values; encrypted secret material remains under `secrets/`.
 
-This repository is **public** and not authorization-gated. `proposal.datom`
-holds no secret values — only references to them. The referenced secret
-material (for example the router SAE passwords) lives encrypted in
-`secrets/` (SOPS) and never appears in plaintext here, so the repository
-and its data are safe to treat as public. Only those encrypted values
-are protected; the repo itself is not private.
+## Authored data and composition
 
-## Wire format
+`cluster-definition.datom` is the sole public cluster artifact. It carries
+cluster-local nodes, users, domains, trust, and the explicit generic-node
+selection. Generic definitions live in the independent
+`criomos-horizon-config` producer. A caller pins both immutable sources and
+uses its `composeHorizonDefinition` derivation, which invokes Horizon’s typed
+composer and exposes the canonical child `horizon-definition.datom`.
 
-`proposal.datom` — positional records per the
-[Datomic](https://github.com/LiGoldragon/datomic) data format. Fed to
-`horizon-cli` (from horizon-rs) on stdin; the projected horizon comes
-back as JSON. Canonical records use brace bodies, maps use
-`«key value»`, and options use `Some.value` / `None`. Router interface
-records include production access facts such as Prometheus' primary router
-Wi-Fi and its independent backup Wi-Fi.
+Lojix receives that one composed child as its `ProposalSource`. It does not
+read this checkout or discover a sibling configuration. Private deployment
+material remains a separate privileged Lojix request input.
 
-```
-horizon-cli --cluster goldragon --node tiger < proposal.datom > horizon.json
-```
+## Validation
 
-## Validation contract
+Validate the composed canonical child with Horizon `0.6.0`
+(`05879e7c1e5f637f78fbe26234b95213c77c59bc`): it resolves explicitly selected
+generic nodes before projecting a requested cluster/node. The composer rejects
+unknown selections and local/generic name collisions.
 
-Before pushing a proposal change, resolve the exact `horizon-rs` revision from
-the Lojix revision that will consume it and project every node in this file with
-that `horizon-cli`. On Ouranos, launch it with local Nix jobs disabled, the
-Prometheus-only `/etc/nix/machines` builder set, and fallback disabled. This is
-the durable wire-format witness: validation by a pre-Datomic/legacy parser or a
-mere file-extension rename does not count.
+## Synchronizer
 
-## Consumers
-
-- **horizon-rs** — typed schema + projection. Computes the enriched
-  horizon for each `(cluster, node)` viewpoint.
-- **CriomOS** — NixOS modules consume the projected horizon (via IFD
-  through `horizon-cli`) to build per-node OS configs.
-
-## Schema
-
-The proposal schema is owned by horizon-rs. This canonical source is validated
-directly; no shadow migration fixture is authoritative.
+`synchronizer.datomic` now names `DirectHost.prometheus`. This preserves the
+actual previous NixBuilder result while removing its obsolete
+`ClusterProposal` file dependency. A future role-discovery change belongs in
+Synchronizer’s own typed consumer migration, not in this data repository.

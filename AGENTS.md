@@ -8,7 +8,7 @@ Run `bd list --status open` to see what's already on the table.
 
 Data repo only. Owns the cluster proposal — the source of truth for
 every node, user, and trust relation in the LiGoldragon kriom.
-Consumed by horizon-rs (via `horizon-cli` over `proposal.datom`) and by
+Consumed by horizon-rs (via `Horizon typed composition over `cluster-definition.datom`) and by
 CriomOS through the horizon projection.
 
 ## Schema
@@ -21,7 +21,7 @@ Nix consumers run `horizon-cli` and read the result via
 
 ## Wire format
 
-`proposal.datom` is the wire form. There is no `datom.nix` and no
+`cluster-definition.datom` is the wire form. There is no `datom.nix` and no
 `flake.nix` — goldragon is pure data; consumers fetch it as a file.
 
 ## Hard process rules
@@ -30,7 +30,7 @@ Nix consumers run `horizon-cli` and read the result via
 - Push immediately after every change.
 - Mentci three-tuple commit format:
   `(("CommitType", "scope"), ("Action", "what"), ("Verdict", "why"))`.
-- Before pushing any `proposal.datom` change, use the exact `horizon-rs` revision
+- Before pushing any `cluster-definition.datom` change, use the exact `horizon-rs` revision
   pinned by the intended Lojix revision to project every declared node. A file
   rename or successful legacy-parser run is not a format migration. The
   current parser must accept the canonical source, and Lojix's typed Horizon
