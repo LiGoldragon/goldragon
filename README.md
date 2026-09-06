@@ -40,9 +40,11 @@ the directory or discover sibling files. Decode the rendered configuration
 without starting a Synchronizer run:
 
 ```sh
-nix develop github:LiGoldragon/synchronizer/b42c9df295adccdd65381f8bd444147099036183 \
-  --command cargo run --example validate -- \
-  "$(nix path-info .#synchronizer-configuration)"
+(
+  cd /path/to/checked-out/synchronizer-at-b42c9df295adccdd65381f8bd444147099036183
+  nix develop --command cargo run --example validate -- \
+    "$(nix path-info /path/to/goldragon#synchronizer-configuration)"
+)
 ```
 
 `nix flake check` verifies the definition with Horizon CLI, verifies the
