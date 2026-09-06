@@ -1,31 +1,53 @@
 # goldragon
 
-Public cluster-local Horizon data for the Goldragon cluster. It contains no
-secret values; encrypted secret material remains under `secrets/`.
+Public cluster-local Horizon data and generated integration artifacts for the
+Goldragon cluster. Encrypted secret material remains under `secrets/`; it is
+not an input to the public Horizon or Synchronizer outputs.
 
 ## Authored data and composition
 
-`cluster-definition.datom` is the sole public cluster artifact. It carries
+`cluster-definition.datom` is the public cluster artifact. It carries
 cluster-local nodes, users, domains, trust, and the explicit generic-node
 selection. Generic definitions live in the independent
-`criomos-horizon-config` producer. A caller pins both immutable sources and
-uses its `composeHorizonDefinition` derivation, which invokes Horizon’s typed
-composer and exposes the canonical child `horizon-definition.datom`.
+`criomos-horizon-config` producer.
 
-Lojix receives that one composed child as its `ProposalSource`. It does not
-read this checkout or discover a sibling configuration. Private deployment
-material remains a separate privileged Lojix request input.
+This flake pins Horizon `0.6.0`, the cluster-neutral external configuration,
+and Synchronizer `0.4.0`. Its two public outputs are:
 
-## Validation
+- `horizon-definition`: a derivation directory containing the canonical child
+  `horizon-definition.datom`.
+- `synchronizer-configuration`: one current Synchronizer Datom document whose
+  `ClusterRole.NixBuilder` source is that exact canonical child.
 
-Validate the composed canonical child with Horizon `0.6.0`
-(`05879e7c1e5f637f78fbe26234b95213c77c59bc`): it resolves explicitly selected
-generic nodes before projecting a requested cluster/node. The composer rejects
-unknown selections and local/generic name collisions.
+The derivation invokes Horizon’s typed composer. It rejects unknown generic
+selections and local/generic name collisions. The public definition contains
+no private deployment material. Lojix receives that canonical child as its
+single `ProposalSource`; secret authority remains a separate caller-owned
+input.
 
-## Synchronizer
+## Build and validate
 
-`synchronizer.datomic` now names `DirectHost.prometheus`. This preserves the
-actual previous NixBuilder result while removing its obsolete
-`ClusterProposal` file dependency. A future role-discovery change belongs in
-Synchronizer’s own typed consumer migration, not in this data repository.
+Build the public artifacts remotely through the configured builders:
+
+```sh
+nix build -L --no-link --max-jobs 0 --option fallback false \
+  .#horizon-definition .#synchronizer-configuration
+```
+
+The canonical proposal is
+`$(nix path-info .#horizon-definition)/horizon-definition.datom`; do not pass
+the directory or discover sibling files. Decode the rendered configuration
+without starting a Synchronizer run:
+
+```sh
+nix develop github:LiGoldragon/synchronizer/b42c9df295adccdd65381f8bd444147099036183 \
+  --command cargo run --example validate -- \
+  "$(nix path-info .#synchronizer-configuration)"
+```
+
+`nix flake check` verifies the definition with Horizon CLI, verifies the
+rendered absolute child reference, and records the current eligible
+`NixBuilder` set: `ouranos` at the default capacity of one and `prometheus` at
+six. Synchronizer’s typed resolver therefore selects `prometheus`; its own
+role-resolution tests cover capacity, online eligibility, deterministic ties,
+and missing candidates.

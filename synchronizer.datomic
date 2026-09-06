@@ -1,1 +1,13 @@
-{GitHub.LiGoldragon /git/github.com/LiGoldragon [{signal-frame AtRoot} {signal-router AtRoot} {signal-harness AtRoot} {introspect AtRoot} {persona AtRoot} {router AtRoot} {message AtRoot}] {main synchronizer} DirectHost.prometheus WireExercising.[daemon daemons socket sockets wire] {synchronizer synchronizer@criome.net}}
+{ GitHub.LiGoldragon
+  /git/github.com/LiGoldragon
+  [ { signal-frame AtRoot }
+    { signal-router AtRoot }
+    { signal-harness AtRoot }
+    { introspect AtRoot }
+    { persona AtRoot }
+    { router AtRoot }
+    { message AtRoot } ]
+  { main synchronizer }
+  ClusterRole.{ NixBuilder HorizonDefinition.@horizon-definition@ }
+  WireExercising.[ daemon daemons socket sockets wire ]
+  { synchronizer synchronizer@criome.net } }
