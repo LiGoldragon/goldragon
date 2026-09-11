@@ -101,17 +101,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1788643009,
-        "narHash": "sha256-9umPtsbsWEWysV0VTitXCeBARyZSbFbVCAyYNN6bkY0=",
+        "lastModified": 1789158214,
+        "narHash": "sha256-SJSELprZI7wI4zgG/gQZahyyDiWRTlK+c8Z30ikFC+0=",
         "owner": "LiGoldragon",
-        "repo": "horizon",
-        "rev": "05879e7c1e5f637f78fbe26234b95213c77c59bc",
+        "repo": "horizon-rs",
+        "rev": "8f4240ef23024c2d3b55f803d96d3c6e7aa5b433",
         "type": "github"
       },
       "original": {
         "owner": "LiGoldragon",
-        "repo": "horizon",
-        "rev": "05879e7c1e5f637f78fbe26234b95213c77c59bc",
+        "repo": "horizon-rs",
+        "rev": "8f4240ef23024c2d3b55f803d96d3c6e7aa5b433",
         "type": "github"
       }
     },
@@ -122,17 +122,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1788656757,
-        "narHash": "sha256-mi4dbgbXNXGyB3wmzC4kxSfYm2gKzxmszH3MuM8OijQ=",
+        "lastModified": 1789158570,
+        "narHash": "sha256-VUCM2QU5zt4iDJNr2ozu8zrukn6c5adgVMiQ7hmA+lA=",
         "owner": "LiGoldragon",
         "repo": "criomos-horizon-config",
-        "rev": "7050afef14bcfe649c0d05bdaa681d1577cafc46",
+        "rev": "74a4ad35f7a709f5f9cfc6eff74f986d9f2c5a0e",
         "type": "github"
       },
       "original": {
         "owner": "LiGoldragon",
+        "ref": "74a4ad35f7a7",
         "repo": "criomos-horizon-config",
-        "rev": "7050afef14bcfe649c0d05bdaa681d1577cafc46",
         "type": "github"
       }
     },

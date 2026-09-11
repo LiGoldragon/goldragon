@@ -1,5 +1,15 @@
 # Upgrades
 
+## Fixed node location
+
+Horizon 0.9 adds a trailing optional fixed location to every `NodeDefinition`.
+Each existing node must carry `None`; a deliberately declared node location is
+`Some.{ <latitude-degrees> <longitude-degrees> <altitude-metres> <accuracy-metres> }`.
+The Ouranos value is a San Cristóbal de las Casas city-centre override supplied
+by its user. It is not a laptop position measurement. Consumers must compose
+this cluster source with the same pinned Horizon revision before materializing
+or deploying a Horizon definition.
+
 ## HorizonDefinition composition
 
 The retired `proposal.datom` (`Text<ClusterProposal>`) is replaced by

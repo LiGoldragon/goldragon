@@ -5,12 +5,12 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     horizon = {
-      url = "github:LiGoldragon/horizon/05879e7c1e5f637f78fbe26234b95213c77c59bc";
+      url = "github:LiGoldragon/horizon-rs/8f4240ef23024c2d3b55f803d96d3c6e7aa5b433";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     horizon-config = {
-      url = "github:LiGoldragon/criomos-horizon-config/7050afef14bcfe649c0d05bdaa681d1577cafc46";
+      url = "github:LiGoldragon/criomos-horizon-config/74a4ad35f7a7";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -69,6 +69,15 @@
           } ''
             test -s ${artifact.horizonDefinitionPath}
             ${artifact.horizonCli}/bin/horizon-cli --node prometheus < ${artifact.horizonDefinitionPath} > projection.json
+            ${artifact.horizonCli}/bin/horizon-cli --node ouranos < ${artifact.horizonDefinitionPath} > ouranos.json
+            ${pkgs.jq}/bin/jq -e '
+              .node.fixedLocation == {
+                latitude: 16.736944,
+                longitude: -92.6375,
+                altitude: 2121,
+                accuracy: 1000
+              }
+            ' ouranos.json
             ${pkgs.jq}/bin/jq -e '
               [ .node, (.exNodes | to_entries[] | .value) ]
               | [ .[]
