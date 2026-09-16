@@ -55,7 +55,7 @@
       True
       None
       None
-      [(TailnetClient) (TailnetController) (NixBuilder None) (PersonaDevelopment [(GitoliteServer)])]}
+      [(TailnetClient) (TailnetController) (NixBuilder None) (CoreCheckup) (PersonaDevelopment [(GitoliteServer)])]}
     prometheus.{LargeAiRouter
       Max
       Max
