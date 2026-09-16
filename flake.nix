@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     horizon = {
-      url = "github:LiGoldragon/horizon-rs/8f4240ef23024c2d3b55f803d96d3c6e7aa5b433";
+      url = "github:LiGoldragon/horizon-rs/40d04d2504fee619e9b2b2564b8a769a3a9d6049";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
