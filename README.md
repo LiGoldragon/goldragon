@@ -11,7 +11,7 @@ cluster-local nodes, users, domains, trust, and the explicit generic-node
 selection. Generic definitions live in the independent
 `criomos-horizon-config` producer.
 
-This flake pins Horizon `0.6.0`, the cluster-neutral external configuration,
+This flake pins Horizon `0.13.0`, the cluster-neutral external configuration,
 and Synchronizer `0.4.0`. Its two public outputs are:
 
 - `horizon-definition`: a derivation directory containing the canonical child
@@ -49,7 +49,7 @@ without starting a Synchronizer run:
 
 `nix flake check` verifies the definition with Horizon CLI, verifies the
 rendered absolute child reference, and records the current eligible
-`NixBuilder` set: `ouranos` at the default capacity of one and `prometheus` at
-six. Synchronizer’s typed resolver therefore selects `prometheus`; its own
+`NixBuilder` set: `prometheus` alone, at eight. Synchronizer’s typed resolver
+therefore selects `prometheus`; its own
 role-resolution tests cover capacity, online eligibility, deterministic ties,
 and missing candidates.

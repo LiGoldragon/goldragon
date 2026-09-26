@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     horizon = {
-      url = "github:LiGoldragon/horizon-rs/ee8d6f8d27eb6e200504807971ffdd26aaca7ed1";
+      url = "github:LiGoldragon/horizon-rs/a3ddaf8685b920093a2328b85ba350a04e11477a";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -87,10 +87,20 @@
                 ]
               | sort_by(.name)
               == [
-                { name: "ouranos", maximum_jobs: 1 },
-                { name: "prometheus", maximum_jobs: 6 }
+                { name: "prometheus", maximum_jobs: 8 }
               ]
             ' projection.json
+            ${pkgs.jq}/bin/jq -e '
+              .node.network.routerInterfaces.country == "MX"
+              and (.node.capabilities | any(.kind == "tailnetClient" and .preauthKeyReference == "tailnetPreauthKeyPrometheus"))
+              and (.exNodes.ouranos.capabilities | any(.kind == "tailnetController" and .tlsCertificateReference == "headscaleTlsCertificate" and .tlsKeyReference == "headscaleTlsKey"))
+            ' projection.json
+            ${pkgs.jq}/bin/jq -e '
+              .node.maxJobs == 1 and .node.isRemoteNixBuilder == false
+              and (.node.capabilities | any(.kind == "usbDownlink" and .ipv4Network == "10.44.0.0/24"))
+              and (.node.builderConfigs | map(.hostName) == [ "prometheus.goldragon.criome" ])
+              and (.node.builderConfigs[0].maxJobs == 8)
+            ' ouranos.json
             grep -F 'ClusterRole.{ NixBuilder HorizonDefinition.' ${artifact.synchronizerConfiguration}
             grep -F '${artifact.horizonDefinitionPath}' ${artifact.synchronizerConfiguration}
             touch "$out"
