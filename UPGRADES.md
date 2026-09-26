@@ -1,5 +1,32 @@
 # Upgrades
 
+## Horizon 0.13.0: tailnet, router country, USB downlink
+
+Goldragon composes with Horizon 0.13.0.
+
+- Every tailnet client names its own reusable Headscale preauth-key secret:
+  `TailnetClient.{ tailnetPreauthKeyOuranos }`, and likewise
+  `tailnetPreauthKeyPrometheus`, `tailnetPreauthKeyMirrorAlpha`,
+  `tailnetPreauthKeyMirrorBeta` and `tailnetPreauthKeyVmTesting`. Each
+  `secrets/<name>.sops` is encrypted to that host's age key alone.
+- The controller (ouranos) names its TLS secrets and carries the public
+  cluster CA as base64 DER:
+  `TailnetController.{ Some.MII… { headscaleTlsCertificate } { headscaleTlsKey } }`.
+  It is `None` until the CA is minted; CriomOS refuses to evaluate a tailnet
+  node while it is `None`.
+- Prometheus's router declares its regulatory country, `MX`, as the last
+  `RouterInterfaces` field.
+- Ouranos declares `UsbDownlink.{ 10.44.0.0/24 }`. Prometheus declares none:
+  its Router LAN already is `10.18.0.0/24`.
+
+- Prometheus builds with eight jobs (`NixBuilder.Some.8`) and records its
+  real 16 cores. Ouranos leaves the builder set: with no `NixBuilder`
+  capability it projects `max-jobs = 0`, and its dispatcher list names
+  Prometheus alone.
+
+The running Lojix and its Signal contracts must carry Horizon 0.13.0 before
+this definition is submitted.
+
 ## Fixed node location
 
 Horizon 0.9 adds a trailing optional fixed location to every `NodeDefinition`.
