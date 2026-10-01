@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     horizon = {
-      url = "github:LiGoldragon/horizon-rs/a3ddaf8685b920093a2328b85ba350a04e11477a";
+      url = "github:LiGoldragon/horizon-rs/12b2a25bcbad08ebcbac6d1fc25821de3008908d";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -21,11 +21,22 @@
   };
 
   outputs =
-    { self, nixpkgs, horizon, horizon-config, synchronizer, ... }:
+    {
+      self,
+      nixpkgs,
+      horizon,
+      horizon-config,
+      synchronizer,
+      ...
+    }:
     let
-      systems = [ "x86_64-linux" "aarch64-linux" ];
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
       forSystems = nixpkgs.lib.genAttrs systems;
-      artifacts = system:
+      artifacts =
+        system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
           horizonDefinition = horizon-config.lib.composeHorizonDefinition {
@@ -48,8 +59,10 @@
     {
       packages = forSystems (
         system:
-        let artifact = artifacts system;
-        in {
+        let
+          artifact = artifacts system;
+        in
+        {
           default = artifact.horizonDefinition;
           horizon-definition = artifact.horizonDefinition;
           horizon-cli = artifact.horizonCli;
@@ -62,49 +75,64 @@
         let
           pkgs = nixpkgs.legacyPackages.${system};
           artifact = artifacts system;
-        in {
+        in
+        {
           horizon-definition = artifact.horizonDefinition;
-          synchronizer-configuration = pkgs.runCommand "goldragon-synchronizer-configuration-check" {
-            nativeBuildInputs = [ artifact.horizonCli pkgs.jq pkgs.gnugrep ];
-          } ''
-            test -s ${artifact.horizonDefinitionPath}
-            ${artifact.horizonCli}/bin/horizon-cli --node prometheus < ${artifact.horizonDefinitionPath} > projection.json
-            ${artifact.horizonCli}/bin/horizon-cli --node ouranos < ${artifact.horizonDefinitionPath} > ouranos.json
-            ${pkgs.jq}/bin/jq -e '
-              .node.fixedLocation == {
-                latitude: 16.736944,
-                longitude: -92.6375,
-                altitude: 2121,
-                accuracy: 1000
+          synchronizer-configuration =
+            pkgs.runCommand "goldragon-synchronizer-configuration-check"
+              {
+                nativeBuildInputs = [
+                  artifact.horizonCli
+                  pkgs.jq
+                  pkgs.gnugrep
+                ];
               }
-            ' ouranos.json
-            ${pkgs.jq}/bin/jq -e '
-              [ .node, (.exNodes | to_entries[] | .value) ]
-              | [ .[]
-                  | select(.online != false)
-                  | select(any(.capabilities[]?; .kind == "nixBuilder"))
-                  | { name, maximum_jobs: ([.capabilities[] | select(.kind == "nixBuilder") | .maximum_jobs][0] // 1) }
-                ]
-              | sort_by(.name)
-              == [
-                { name: "prometheus", maximum_jobs: 8 }
-              ]
-            ' projection.json
-            ${pkgs.jq}/bin/jq -e '
-              .node.network.routerInterfaces.country == "MX"
-              and (.node.capabilities | any(.kind == "tailnetClient" and .preauthKeyReference == "tailnetPreauthKeyPrometheus"))
-              and (.exNodes.ouranos.capabilities | any(.kind == "tailnetController" and .tlsCertificateReference == "headscaleTlsCertificate" and .tlsKeyReference == "headscaleTlsKey"))
-            ' projection.json
-            ${pkgs.jq}/bin/jq -e '
-              .node.maxJobs == 1 and .node.isRemoteNixBuilder == false
-              and (.node.capabilities | any(.kind == "usbDownlink" and .ipv4Network == "10.44.0.0/24"))
-              and (.node.builderConfigs | map(.hostName) == [ "prometheus.goldragon.criome" ])
-              and (.node.builderConfigs[0].maxJobs == 8)
-            ' ouranos.json
-            grep -F 'ClusterRole.{ NixBuilder HorizonDefinition.' ${artifact.synchronizerConfiguration}
-            grep -F '${artifact.horizonDefinitionPath}' ${artifact.synchronizerConfiguration}
-            touch "$out"
-          '';
+              ''
+                test -s ${artifact.horizonDefinitionPath}
+                ${artifact.horizonCli}/bin/horizon-cli --node prometheus < ${artifact.horizonDefinitionPath} > projection.json
+                ${artifact.horizonCli}/bin/horizon-cli --node ouranos < ${artifact.horizonDefinitionPath} > ouranos.json
+                ${artifact.horizonCli}/bin/horizon-cli --node zeus < ${artifact.horizonDefinitionPath} > zeus.json
+                ${pkgs.jq}/bin/jq -e '
+                  .node.fixedLocation == {
+                    latitude: 16.736944,
+                    longitude: -92.6375,
+                    altitude: 2121,
+                    accuracy: 1000
+                  }
+                ' ouranos.json
+                ${pkgs.jq}/bin/jq -e '
+                  [ .node, (.exNodes | to_entries[] | .value) ]
+                  | [ .[]
+                      | select(.online != false)
+                      | select(any(.capabilities[]?; .kind == "nixBuilder"))
+                      | { name, maximum_jobs: ([.capabilities[] | select(.kind == "nixBuilder") | .maximum_jobs][0] // 1) }
+                    ]
+                  | sort_by(.name)
+                  == [
+                    { name: "prometheus", maximum_jobs: 8 }
+                  ]
+                ' projection.json
+                ${pkgs.jq}/bin/jq -e '
+                  .node.network.routerInterfaces.country == "MX"
+                  and (.node.network.routerInterfaces | has("wan") | not)
+                  and (.node.capabilities | any(.kind == "usbDownlink" and .ipv4Network == "10.18.0.0/24"))
+                  and (.node.capabilities | any(.kind == "tailnetClient" and .preauthKeyReference == "tailnetPreauthKeyPrometheus"))
+                  and (.exNodes.ouranos.capabilities | any(.kind == "tailnetController" and .tlsCertificateReference == "headscaleTlsCertificate" and .tlsKeyReference == "headscaleTlsKey"))
+                ' projection.json
+                ${pkgs.jq}/bin/jq -e '
+                  .node.maxJobs == 1 and .node.isRemoteNixBuilder == false
+                  and (.node.capabilities | any(.kind == "usbDownlink" and .ipv4Network == "10.44.0.0/24"))
+                  and (.node.builderConfigs | map(.hostName) == [ "prometheus.goldragon.criome" ])
+                  and (.node.builderConfigs[0].maxJobs == 8)
+                ' ouranos.json
+                ${pkgs.jq}/bin/jq -e '
+                  (.node.capabilities | any(.kind == "usbDownlink" and .ipv4Network == "10.45.0.0/24"))
+                  and .node.enableNetworkManager
+                ' zeus.json
+                grep -F 'ClusterRole.{ NixBuilder HorizonDefinition.' ${artifact.synchronizerConfiguration}
+                grep -F '${artifact.horizonDefinitionPath}' ${artifact.synchronizerConfiguration}
+                touch "$out"
+              '';
           synchronizer = synchronizer.packages.${system}.default;
         }
       );
