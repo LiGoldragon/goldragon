@@ -1,5 +1,19 @@
 # Upgrades
 
+## Horizon 0.14.0: one USB sharing capability
+
+The current definition composes with the pinned Horizon 0.14.0.
+`RouterInterfaces` carries the radio only; integrated Ethernet uplinks are
+selected by hardware kind in CriomOS, not by a WAN interface name in data.
+Ouranos, Prometheus and Zeus declare `UsbDownlink` networks `10.44.0.0/24`,
+`10.18.0.0/24` and `10.45.0.0/24`, respectively.
+
+The materializer and both Signal contracts must use this same Horizon pin.
+Lojix 9 uses store schema 6 and refuses schema 5 without changing it; its
+reset primitive also refuses schema 5. Existing stores and startup archives
+require separately validated non-destructive state migration and rollback
+before runtime cutover. Updating this definition does not qualify deployment.
+
 ## Horizon 0.13.0: tailnet, router country, USB downlink
 
 Goldragon composes with Horizon 0.13.0.
