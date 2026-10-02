@@ -6,7 +6,9 @@ The current definition composes with the pinned Horizon 0.14.0.
 `RouterInterfaces` carries the radio only; integrated Ethernet uplinks are
 selected by hardware kind in CriomOS, not by a WAN interface name in data.
 Ouranos, Prometheus and Zeus declare `UsbDownlink` networks `10.44.0.0/24`,
-`10.18.0.0/24` and `10.45.0.0/24`, respectively.
+`10.18.0.0/24` and `10.45.0.0/24`, respectively. Balboa explicitly retains
+its former Center fallback subnet, `10.47.0.0/24`, through the same capability.
+Tiger was an Edge without that Center fallback and remains undeclared.
 
 The materializer and both Signal contracts must use this same Horizon pin.
 Lojix 9 uses store schema 6 and refuses schema 5 without changing it; its
