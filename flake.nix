@@ -5,17 +5,17 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     horizon = {
-      url = "github:LiGoldragon/horizon-rs/a3ddaf8685b920093a2328b85ba350a04e11477a";
+      url = "github:LiGoldragon/horizon-rs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     horizon-config = {
-      url = "github:LiGoldragon/criomos-horizon-config/74a4ad35f7a7";
+      url = "github:LiGoldragon/criomos-horizon-config";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     synchronizer = {
-      url = "github:LiGoldragon/synchronizer/b42c9df295adccdd65381f8bd444147099036183";
+      url = "github:LiGoldragon/synchronizer";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
