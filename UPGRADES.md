@@ -1,5 +1,18 @@
 # Upgrades
 
+## Horizon 0.16.0: the OpenCode testing owner, StableCodex
+
+Goldragon composes with Horizon 0.16.0.
+
+- Ouranos names the owner of its OpenCode testing server:
+  `OpenCodeTesting.li`, where it was `OpenCodeTesting.{}`.
+- Bird's keys at tiger and zeus carry `StableCodex`: her Home keeps the
+  stable core Codex and its own account data, a choice CriomOS-home used to
+  make from the name bird.
+
+The running Lojix and its Signal contracts must carry Horizon 0.16.0 before
+this definition is submitted.
+
 ## Horizon 0.13.0: tailnet, router country, USB downlink
 
 Goldragon composes with Horizon 0.13.0.
