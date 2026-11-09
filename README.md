@@ -53,11 +53,3 @@ rendered absolute child reference, and records the current eligible
 therefore selects `prometheus`; its own
 role-resolution tests cover capacity, online eligibility, deterministic ties,
 and missing candidates.
-
-## Flow metaflows
-
-`metaflows-0533.datom` is the living configuration of the Flow Nexus 0.53.3
-at main: every permaflow, its modules, launch and purpose, as one
-`Configure.Metaflows`. CriomOS-home reads it from this repository and writes
-it to `~/.local/state/flow-declarations/metaflows-0533.datom`, which the
-configuration unit replays into the running Nexus.
