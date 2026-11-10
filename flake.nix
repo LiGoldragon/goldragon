@@ -72,9 +72,9 @@
             ${artifact.horizonCli}/bin/horizon-cli --node ouranos < ${artifact.horizonDefinitionPath} > ouranos.json
             ${pkgs.jq}/bin/jq -e '
               .node.fixedLocation == {
-                latitude: 16.736944,
-                longitude: -92.6375,
-                altitude: 2121,
+                latitude: 17.0654,
+                longitude: -96.7236,
+                altitude: 1555,
                 accuracy: 1000
               }
             ' ouranos.json
