@@ -1,3 +1,7 @@
+# Code replica-only synchronization
+
+Every authored user gains the final synchronization vector. li declares only Code, master ouranos and replica prometheus. No user key, account policy, capability, node fact, or Home presence changes. The replica authorizes the existing master identity and receives only a configurable system Unison program; no li Home is selected there. Legacy Synchronizer stays pinned and outside this rollout.
+
 # Upgrades
 
 ## Horizon 0.16.0: the OpenCode testing owner, StableCodex
