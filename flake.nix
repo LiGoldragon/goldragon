@@ -64,6 +64,29 @@
           artifact = artifacts system;
         in {
           horizon-definition = artifact.horizonDefinition;
+          router-usb-parent-power = pkgs.runCommand "goldragon-router-usb-parent-power-check" {
+            nativeBuildInputs = [ artifact.horizonCli pkgs.jq ];
+          } ''
+            set -eu
+            for node in balboa mirror-alpha mirror-beta ouranos prometheus tiger vm-testing zeus live-install-graphical live-install-minimal; do
+              horizon-cli --node "$node" < ${artifact.horizonDefinitionPath} > "$node.json"
+              jq -e --arg node "$node" '
+                [.node.capabilities[] | select(.kind == "routerUsbParentPowerOn")]
+                == (if $node == "prometheus" then [{
+                  kind: "routerUsbParentPowerOn",
+                  devices: [{
+                    pciControllerAddress: "0000:c7:00.0",
+                    rootPort: 2,
+                    usbVendorId: "0b95",
+                    usbProductId: "1790",
+                    usbDeviceRevision: "0200",
+                    usbSerialNumber: "00000000009525"
+                  }]
+                }] else [] end)
+              ' "$node.json"
+            done
+            touch "$out"
+          '';
           synchronizer-configuration = pkgs.runCommand "goldragon-synchronizer-configuration-check" {
             nativeBuildInputs = [ artifact.horizonCli pkgs.jq pkgs.gnugrep ];
           } ''
