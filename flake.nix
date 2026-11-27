@@ -87,6 +87,19 @@
             done
             touch "$out"
           '';
+          preferred-wired-internet = pkgs.runCommand "goldragon-preferred-wired-internet-check" {
+            nativeBuildInputs = [ artifact.horizonCli pkgs.jq ];
+          } ''
+            set -eu
+            for node in balboa mirror-alpha mirror-beta ouranos prometheus tiger vm-testing zeus live-install-graphical live-install-minimal; do
+              horizon-cli --node "$node" < ${artifact.horizonDefinitionPath} > "$node.json"
+              jq -e --arg node "$node" '
+                [.node.capabilities[] | select(.kind == "preferredWiredInternet")]
+                == (if $node == "zeus" then [{kind:"preferredWiredInternet",interface:"enp0s31f6"}] else [] end)
+              ' "$node.json"
+            done
+            touch "$out"
+          '';
           synchronizer-configuration = pkgs.runCommand "goldragon-synchronizer-configuration-check" {
             nativeBuildInputs = [ artifact.horizonCli pkgs.jq pkgs.gnugrep ];
           } ''
